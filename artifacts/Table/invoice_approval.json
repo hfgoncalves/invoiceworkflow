@@ -1,0 +1,44 @@
+{
+	"id": "8df410cb-bf6e-eb11-b566-2818786fd42d",
+	"createdAt": "2021-02-14T12:26:00.646Z",
+	"createdBy": "ole-andre.haugen@neptune-software.com",
+	"fields": [
+		{
+			"id": "81ada0d4-b131-4c77-b3a2-2406fb9c33ba",
+			"fieldName": "NAME",
+			"fieldType": "text",
+			"description": "Name",
+			"isNullable": true
+		},
+		{
+			"id": "d6dbc39b-d99e-4c21-9e80-ad37f4d8e698",
+			"fieldName": "KOSTL",
+			"fieldType": "text",
+			"description": "Cost Center"
+		},
+		{
+			"id": "39e6501a-576a-48b7-9e6c-6a3a77e65307",
+			"fieldName": "AMOUNT_FROM",
+			"fieldType": "bigint",
+			"description": "Amount From",
+			"isNullable": true
+		},
+		{
+			"id": "c678635d-b001-428a-f896-ae3537d30743",
+			"fieldName": "AMOUNT_TO",
+			"fieldType": "bigint",
+			"description": "Amount To",
+			"isNullable": true
+		}
+	],
+	"indices": [],
+	"foreignKeys": [],
+	"name": "invoice_approval",
+	"description": "INVOICE: Approval Header",
+	"ver": "23.1.23.1127",
+	"enableAudit": false,
+	"includeDataInPackage": false,
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784",
+	"rolesRead": [],
+	"rolesWrite": []
+}

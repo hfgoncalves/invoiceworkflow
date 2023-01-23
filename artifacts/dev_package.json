@@ -23,9 +23,49 @@
 	"odataMock": [],
 	"dictionary": [
 		{
+			"id": "bd57aabf-1175-eb11-85aa-2818786fd9b9",
+			"name": "invoice_exchange_rates",
+			"description": "INVOICE: Values from European Central Bank"
+		},
+		{
+			"id": "a434c9ee-b782-eb11-85aa-2818786f9d68",
+			"name": "invoice_tax_codes",
+			"description": "INVOICE: Tax Codes"
+		},
+		{
+			"id": "8df410cb-bf6e-eb11-b566-2818786fd42d",
+			"name": "invoice_approval",
+			"description": "INVOICE: Approval Header"
+		},
+		{
+			"id": "70c793ee-bf6e-eb11-b566-2818786fd42d",
+			"name": "invoice_approval_users",
+			"description": "INVOICE: Approval Users"
+		},
+		{
+			"id": "5fbe4ecc-3e6d-eb11-b566-2818786fd42d",
+			"name": "invoice_t001",
+			"description": "INVOICE: Company Code"
+		},
+		{
 			"id": "5a669a1e-f466-eb11-988a-2818786fc240",
 			"name": "invoice_header",
 			"description": "INVOICE: Header"
+		},
+		{
+			"id": "5263ecd9-a3c4-ec11-997e-2818783c4338",
+			"name": "invoice_email_reminder",
+			"description": "Invoice email reminder"
+		},
+		{
+			"id": "4fc9aa99-fa6c-eb11-b566-2818786fd42d",
+			"name": "invoice_lfa1",
+			"description": "INVOICE: Vendors"
+		},
+		{
+			"id": "4ede3bc5-fa6c-eb11-b566-2818786fd42d",
+			"name": "invoice_cskt",
+			"description": "INVOICE: Cost Center"
 		},
 		{
 			"id": "367b4474-628a-ed11-9f5e-0022489e2f99",
@@ -41,6 +81,16 @@
 			"id": "21f2f950-6f6b-eb11-b566-2818786fd42d",
 			"name": "invoice_rules",
 			"description": "INVOICE: Rules"
+		},
+		{
+			"id": "12750f78-b782-eb11-85aa-2818786f9d68",
+			"name": "invoice_t005",
+			"description": "INVOICE: Tax Code Procedures "
+		},
+		{
+			"id": "026389b1-fa6c-eb11-b566-2818786fd42d",
+			"name": "invoice_skat",
+			"description": "INVOICE: G/L Account"
 		}
 	],
 	"jsclass": [

@@ -1,0 +1,30 @@
+{
+	"id": "026389b1-fa6c-eb11-b566-2818786fd42d",
+	"createdAt": "2021-02-12T06:22:35.510Z",
+	"createdBy": "ole-andre.haugen@neptune-software.com",
+	"fields": [
+		{
+			"id": "e9d6dc17-c624-429c-e6ca-57440125c298",
+			"fieldName": "SAKNR",
+			"fieldType": "text",
+			"description": "G/L Account"
+		},
+		{
+			"id": "dce3cbe6-4375-4af8-db04-0696398e99db",
+			"fieldName": "TXT20",
+			"fieldType": "text",
+			"description": "Name",
+			"isNullable": true
+		}
+	],
+	"indices": [],
+	"foreignKeys": [],
+	"name": "invoice_skat",
+	"description": "INVOICE: G/L Account",
+	"ver": "23.1.23.1126",
+	"enableAudit": false,
+	"includeDataInPackage": false,
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784",
+	"rolesRead": [],
+	"rolesWrite": []
+}

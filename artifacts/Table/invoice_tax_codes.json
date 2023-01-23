@@ -1,0 +1,37 @@
+{
+	"id": "a434c9ee-b782-eb11-85aa-2818786f9d68",
+	"createdAt": "2021-03-11T22:20:07.783Z",
+	"createdBy": "jon.arne.skaarud@neptune-software.com",
+	"fields": [
+		{
+			"id": "fe548100-879a-4b38-f13e-5abfbec351f7",
+			"fieldName": "KALSM",
+			"fieldType": "text",
+			"description": "Procedure",
+			"isUnique": false
+		},
+		{
+			"id": "88fe346b-161e-4a37-e514-7ee3b8fabc59",
+			"fieldName": "MWSKZ",
+			"fieldType": "text",
+			"description": "Tax Code",
+			"isUnique": false
+		},
+		{
+			"id": "f29ea6da-c7b0-4e4d-f689-e185a30e9333",
+			"fieldName": "TEXT1",
+			"fieldType": "text",
+			"description": "Tax Code Description"
+		}
+	],
+	"indices": [],
+	"foreignKeys": [],
+	"name": "invoice_tax_codes",
+	"description": "INVOICE: Tax Codes",
+	"ver": "23.1.23.1125",
+	"enableAudit": false,
+	"includeDataInPackage": false,
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784",
+	"rolesRead": [],
+	"rolesWrite": []
+}

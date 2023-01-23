@@ -1,0 +1,29 @@
+{
+	"id": "12750f78-b782-eb11-85aa-2818786f9d68",
+	"createdAt": "2021-03-11T22:16:48.966Z",
+	"createdBy": "jon.arne.skaarud@neptune-software.com",
+	"fields": [
+		{
+			"id": "99a18d0d-2eda-44b5-80e2-9855fcf78a55",
+			"fieldName": "LAND1",
+			"fieldType": "text",
+			"description": "Country code"
+		},
+		{
+			"id": "721d400c-3efa-405a-eca0-3cac65ccc82e",
+			"fieldName": "KALSM",
+			"fieldType": "text",
+			"description": "Tax Code procedure"
+		}
+	],
+	"indices": [],
+	"foreignKeys": [],
+	"name": "invoice_t005",
+	"description": "INVOICE: Tax Code Procedures ",
+	"ver": "23.1.23.1124",
+	"enableAudit": false,
+	"includeDataInPackage": false,
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784",
+	"rolesRead": [],
+	"rolesWrite": []
+}

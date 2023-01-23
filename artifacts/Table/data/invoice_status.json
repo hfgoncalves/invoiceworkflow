@@ -1,0 +1,101 @@
+[
+	{
+		"id": "b7de53c9-4e0b-4a25-989e-d816a9c36527",
+		"createdAt": "1614244350842",
+		"updatedAt": "1614244350842",
+		"createdBy": "ole-andre.haugen@neptune-software.com",
+		"updatedBy": "ole-andre.haugen@neptune-software.com",
+		"status": 94,
+		"text": "Document already registered"
+	},
+	{
+		"id": "b63e7d6a-db6f-4edd-ae25-95670a662fff",
+		"createdAt": "1613040770528",
+		"updatedAt": "1613149580768",
+		"createdBy": "ole-andre.haugen@neptune-software.com",
+		"updatedBy": "ole-andre.haugen@neptune-software.com",
+		"status": 3,
+		"text": "Parsing Completed"
+	},
+	{
+		"id": "a24172d2-ac32-4e95-8d28-fe90f64fff7e",
+		"createdAt": "1613032410908",
+		"updatedAt": "1613149580768",
+		"createdBy": "ole-andre.haugen@neptune-software.com",
+		"updatedBy": "ole-andre.haugen@neptune-software.com",
+		"status": 1,
+		"text": "New"
+	},
+	{
+		"id": "8ab24522-2699-49a5-8a5e-8f6342cf90a2",
+		"createdAt": "1613131746509",
+		"updatedAt": "1613149580768",
+		"createdBy": "ole-andre.haugen@neptune-software.com",
+		"updatedBy": "ole-andre.haugen@neptune-software.com",
+		"status": 20,
+		"text": "Edit Started"
+	},
+	{
+		"id": "7145cf08-2452-4c0b-9314-9072b3d6e89f",
+		"createdAt": "1613053019354",
+		"updatedAt": "1613149580768",
+		"createdBy": "ole-andre.haugen@neptune-software.com",
+		"updatedBy": "ole-andre.haugen@neptune-software.com",
+		"status": 90,
+		"text": "Document is not PDF"
+	},
+	{
+		"id": "4c158c22-cb8a-4174-8a94-8db8e9aa4e4a",
+		"createdAt": "1613032410908",
+		"updatedAt": "1613149580768",
+		"createdBy": "ole-andre.haugen@neptune-software.com",
+		"updatedBy": "ole-andre.haugen@neptune-software.com",
+		"status": 2,
+		"text": "Rule Not Found"
+	},
+	{
+		"id": "46d5ffa6-cfe9-4a9a-9451-ccf5b07c3283",
+		"createdAt": "1613148937647",
+		"updatedAt": "1613149580768",
+		"createdBy": "ole-andre.haugen@neptune-software.com",
+		"updatedBy": "ole-andre.haugen@neptune-software.com",
+		"status": 92,
+		"text": "Error in Posting"
+	},
+	{
+		"id": "409bdeb3-8fda-4962-8c89-a8d3d8b7645a",
+		"createdAt": "1613147755851",
+		"updatedAt": "1613149580768",
+		"createdBy": "ole-andre.haugen@neptune-software.com",
+		"updatedBy": "ole-andre.haugen@neptune-software.com",
+		"status": 91,
+		"text": "Approval Declined"
+	},
+	{
+		"id": "3090d9fe-4fd5-4ffe-b283-d12f0a6b54c5",
+		"createdAt": "1613032410908",
+		"updatedAt": "1613149580768",
+		"createdBy": "ole-andre.haugen@neptune-software.com",
+		"updatedBy": "ole-andre.haugen@neptune-software.com",
+		"status": 22,
+		"text": "Waiting for Approval"
+	},
+	{
+		"id": "25128ccb-13e1-423b-acd4-92e7f082a55d",
+		"createdAt": "1613032410908",
+		"updatedAt": "1613149580768",
+		"createdBy": "ole-andre.haugen@neptune-software.com",
+		"updatedBy": "ole-andre.haugen@neptune-software.com",
+		"status": 30,
+		"text": "Approved and Posted"
+	},
+	{
+		"id": "12ff7b55-ae2b-48e2-b717-0976f72f1584",
+		"createdAt": "1613309654767",
+		"updatedAt": "1613309654767",
+		"createdBy": "ole-andre.haugen@neptune-software.com",
+		"updatedBy": "ole-andre.haugen@neptune-software.com",
+		"status": 93,
+		"text": "Approver not found"
+	}
+]

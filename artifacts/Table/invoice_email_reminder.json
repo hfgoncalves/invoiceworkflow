@@ -1,0 +1,59 @@
+{
+	"id": "5263ecd9-a3c4-ec11-997e-2818783c4338",
+	"createdAt": "2022-04-25T14:27:38.116Z",
+	"createdBy": "luca.parente@neptune-software.com",
+	"fields": [
+		{
+			"id": "fde2453c-7b38-47f4-ab4d-668917d0ff1e",
+			"fieldName": "customer",
+			"fieldType": "text",
+			"description": "Customer"
+		},
+		{
+			"id": "a8d31793-532a-48a8-84d6-ff86f603bbb2",
+			"fieldName": "email_to",
+			"fieldType": "text",
+			"description": "Email address sender"
+		},
+		{
+			"id": "e7a49efc-0f56-48ae-e5f5-7a6221549b9c",
+			"fieldName": "email_from",
+			"fieldType": "text",
+			"description": "Email address receiver"
+		},
+		{
+			"id": "f76c5407-a60f-4c69-835d-03c08096d1c2",
+			"fieldName": "email_cc",
+			"fieldType": "text",
+			"description": "Email address cc"
+		},
+		{
+			"id": "eabdcc89-387d-471a-da5b-7983c5754f24",
+			"fieldName": "attachments",
+			"fieldType": "text",
+			"description": "Email Attachments (invoices)"
+		},
+		{
+			"id": "5838198c-bc0b-4eba-f577-edfba883684c",
+			"fieldName": "subject",
+			"fieldType": "text",
+			"description": "Email Subject"
+		},
+		{
+			"id": "157b10f6-1e75-4d90-ad9c-07128cdb849c",
+			"fieldName": "body",
+			"fieldType": "text",
+			"description": "Email Body"
+		}
+	],
+	"indices": [],
+	"foreignKeys": [],
+	"name": "invoice_email_reminder",
+	"description": "Invoice email reminder",
+	"ver": "23.1.23.1124",
+	"enableAudit": false,
+	"includeDataInPackage": false,
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784",
+	"rolesRead": [],
+	"rolesWrite": []
+}

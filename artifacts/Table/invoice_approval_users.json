@@ -1,0 +1,30 @@
+{
+	"id": "70c793ee-bf6e-eb11-b566-2818786fd42d",
+	"createdAt": "2021-02-14T12:27:00.370Z",
+	"createdBy": "ole-andre.haugen@neptune-software.com",
+	"fields": [
+		{
+			"id": "d6dbc39b-d99e-4c21-9e80-ad37f4d8e698",
+			"fieldName": "APPROVALID",
+			"fieldType": "text",
+			"description": "Approval ID"
+		},
+		{
+			"id": "39e6501a-576a-48b7-9e6c-6a3a77e65307",
+			"fieldName": "USER",
+			"fieldType": "text",
+			"description": "User",
+			"isNullable": true
+		}
+	],
+	"indices": [],
+	"foreignKeys": [],
+	"name": "invoice_approval_users",
+	"description": "INVOICE: Approval Users",
+	"ver": "23.1.23.1127",
+	"enableAudit": false,
+	"includeDataInPackage": false,
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784",
+	"rolesRead": [],
+	"rolesWrite": []
+}

@@ -1,0 +1,30 @@
+{
+	"id": "4ede3bc5-fa6c-eb11-b566-2818786fd42d",
+	"createdAt": "2021-02-12T06:23:09.096Z",
+	"createdBy": "ole-andre.haugen@neptune-software.com",
+	"fields": [
+		{
+			"id": "c04291b1-0a1e-40c3-aeaa-c7f8780f367d",
+			"fieldName": "KOSTL",
+			"fieldType": "text",
+			"description": "Cost Center"
+		},
+		{
+			"id": "7c6e9f5c-5bf2-4e53-af3a-7d41e39bc524",
+			"fieldName": "KTEXT",
+			"fieldType": "text",
+			"description": "Name",
+			"isNullable": true
+		}
+	],
+	"indices": [],
+	"foreignKeys": [],
+	"name": "invoice_cskt",
+	"description": "INVOICE: Cost Center",
+	"ver": "23.1.23.1126",
+	"enableAudit": false,
+	"includeDataInPackage": false,
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784",
+	"rolesRead": [],
+	"rolesWrite": []
+}

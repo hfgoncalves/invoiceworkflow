@@ -1,0 +1,52 @@
+{
+	"id": "4fc9aa99-fa6c-eb11-b566-2818786fd42d",
+	"createdAt": "2021-02-12T06:21:55.846Z",
+	"createdBy": "ole-andre.haugen@neptune-software.com",
+	"fields": [
+		{
+			"id": "11b42bdf-7a02-4524-c8ed-6daecda2ce87",
+			"fieldName": "LIFNR",
+			"fieldType": "text",
+			"description": "Vendor",
+			"isNullable": false
+		},
+		{
+			"id": "5864eac7-5138-4fe6-ba7d-964fcedf4f68",
+			"fieldName": "NAME1",
+			"fieldType": "text",
+			"description": "Name",
+			"isNullable": true
+		},
+		{
+			"id": "90ca2119-54ff-4d30-d89f-54ec6ef60f49",
+			"fieldName": "PSTLZ",
+			"fieldType": "text",
+			"description": "ZIP",
+			"isNullable": true
+		},
+		{
+			"id": "9d1bc37d-a371-4d0f-e033-25670f2b1bfe",
+			"fieldName": "ORT01",
+			"fieldType": "text",
+			"description": "City",
+			"isNullable": true
+		},
+		{
+			"id": "0d6b5b1e-a032-475f-d30d-ad58e26b153f",
+			"fieldName": "LAND1",
+			"fieldType": "text",
+			"description": "Country",
+			"isNullable": true
+		}
+	],
+	"indices": [],
+	"foreignKeys": [],
+	"name": "invoice_lfa1",
+	"description": "INVOICE: Vendors",
+	"ver": "23.1.23.1126",
+	"enableAudit": false,
+	"includeDataInPackage": false,
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784",
+	"rolesRead": [],
+	"rolesWrite": []
+}

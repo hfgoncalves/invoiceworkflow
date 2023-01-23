@@ -1,0 +1,36 @@
+{
+	"id": "5fbe4ecc-3e6d-eb11-b566-2818786fd42d",
+	"createdAt": "2021-02-12T14:30:06.186Z",
+	"createdBy": "ole-andre.haugen@neptune-software.com",
+	"fields": [
+		{
+			"id": "e43fce4d-4433-4cf8-b7de-35b63c5dc2e1",
+			"fieldName": "BUKRS",
+			"fieldType": "text",
+			"description": "Company Code"
+		},
+		{
+			"id": "851cb9b7-be3e-4b7b-e621-2fe4f4cd60fe",
+			"fieldName": "BUTXT",
+			"fieldType": "text",
+			"description": "Name"
+		},
+		{
+			"id": "4e4fe221-c0e6-4282-c14f-0b4d410c61f5",
+			"fieldName": "LAND1",
+			"fieldType": "text",
+			"description": "Landcode",
+			"isNullable": true
+		}
+	],
+	"indices": [],
+	"foreignKeys": [],
+	"name": "invoice_t001",
+	"description": "INVOICE: Company Code",
+	"ver": "23.1.23.1126",
+	"enableAudit": false,
+	"includeDataInPackage": false,
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784",
+	"rolesRead": [],
+	"rolesWrite": []
+}

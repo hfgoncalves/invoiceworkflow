@@ -22,9 +22,9 @@
 	"foreignKeys": [],
 	"name": "invoice_status",
 	"description": "INVOICE: Status",
-	"ver": "23.1.2.625",
+	"ver": "23.1.23.1122",
 	"enableAudit": false,
-	"includeDataInPackage": false,
+	"includeDataInPackage": true,
 	"package": "56e95ee8-0a79-ec11-94f6-281878510784",
 	"rolesRead": [],
 	"rolesWrite": []
