@@ -1,0 +1,9 @@
+if (typeof KOSTL === "undefined" || KOSTL === null || KOSTL === "") { return; }
+
+var CSKT = ModelData.FindFirst(modelMasterData.oData.CSKT, "KOSTL", KOSTL)
+
+if (CSKT) {
+    return CSKT.KOSTL.replace(/^0+/, "") + " " + CSKT.KTEXT;
+} else {
+    return KOSTL;
+}

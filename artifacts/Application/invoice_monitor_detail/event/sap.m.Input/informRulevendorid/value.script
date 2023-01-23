@@ -1,0 +1,9 @@
+if (typeof vendorid === "undefined" || vendorid === null || vendorid === "") { return; }
+
+var lfa1 = ModelData.FindFirst(modelMasterData.oData.LFA1, "LIFNR", vendorid)
+
+if (lfa1) {
+    return lfa1.LIFNR.replace(/^0+/, "") + " " + lfa1.NAME1;
+} else {
+    return vendorid;
+}

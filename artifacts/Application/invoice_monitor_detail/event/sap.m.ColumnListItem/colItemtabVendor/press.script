@@ -1,0 +1,12 @@
+var context = oEvent.oSource.getBindingContext("MasterData");
+var data = context.getObject();
+
+if (oApp.getCurrentPage() === oPageTraining) {
+    modelRule.oData.vendorid = data.LIFNR;
+    modelRule.refresh();
+} else {
+    modelAppData.oData.invoice.LIFNR = data.LIFNR;
+    modelAppData.refresh();
+}
+
+diaVendor.close();

@@ -1,0 +1,13 @@
+const query = req.query;
+let email = query.email;
+let invoice = query.invoice;
+let vendor = query.vendor;
+let value = query.value;
+
+const splitedstring = email.split("@");
+let longname = splitedstring[0];
+
+complete();
+await sendEmail(email, "Subject", null, "support@neptune-software.com","5A020280-CC1E-ED11-BD6E-281878AFC480", {name: longname, invoice: invoice, vendor: vendor, value: value}, null);
+
+complete();

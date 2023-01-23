@@ -1,0 +1,4 @@
+if (typeof LAND1 === "undefined" || LAND1 === null || LAND1 === "") {
+    return;
+}
+return "https://www.countryflags.io/" + LAND1 + "/shiny/32.png";

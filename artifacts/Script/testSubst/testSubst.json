@@ -1,0 +1,27 @@
+{
+	"id": "c9827076-5780-ed11-9f5e-0022489e2f99",
+	"createdAt": "2022-12-20T11:14:34.180Z",
+	"createdBy": "jon.arne.skaarud@neptune-software.com",
+	"globalScripts": [],
+	"externalModules": [
+		{
+			"id": "B2C8DD70-AF7F-ED11-9F5E-0022489E2F99",
+			"name": "typeorm",
+			"contextname": "typeorm",
+			"path": "typeorm"
+		}
+	],
+	"entitySets": [],
+	"apis": [],
+	"name": "testSubst",
+	"ver": "22.12.22.72",
+	"description": null,
+	"content": "file:///content.script",
+	"useAsGlobalScript": false,
+	"transpiledContent": null,
+	"lastRunSuccessful": true,
+	"isTypescript": false,
+	"language": "javascript",
+	"jsscriptGroup": "b1a13a28-726b-eb11-b566-2818786fd42d",
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784"
+}

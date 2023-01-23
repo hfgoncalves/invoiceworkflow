@@ -1,0 +1,53 @@
+const { In } = operators;
+const user = req.user;
+
+let invoice = await entities.invoice_header.findOne(req.body.id);
+
+// Test data
+// let invoice = await entities.invoice_header.findOne("4C99B279-14AF-4B5C-81ED-D09771FF3F97");  // 3 steps
+// let invoice = await entities.invoice_header.findOne("608FD234-3083-4959-90F8-1C6F402D7A57");  // 2 step
+// let invoice = await entities.invoice_header.findOne("3A697794-1401-4D14-B9A6-21A3CC2BC4B3");  // 1 step
+
+try {
+
+    // Decimal handling:
+    invoice.WRBTR = invoice.WRBTR.replace(/,/g, '.');
+
+    // Start Workflow
+    const wf = await p9.wf.start({
+        id: "D0417C7D-7D87-ED11-9F5E-0022489E2F99",
+        username: user.username,
+        objectType: invoice.id,
+        objectKey: invoice.XBLNR,
+        amount: invoice.WRBTR,
+        currency: invoice.WAERS,
+    });
+
+    // New Status
+    invoice.STATUS = 22;
+    invoice.WFID = wf.id;
+    invoice.SAP_MESSAGE = 'Workflow Started';
+    await entities.invoice_header.save(invoice);
+
+    result.data = {
+        status: "S",
+        text: "Workflow Started"
+    }
+
+    complete();
+
+} catch (error) {
+
+    log.error("Invoice Monitor: Workflow Start Error :" + error);
+
+    result.data = {
+        status: "E",
+        text: "Workflow Not Started"
+    }
+
+    complete();
+
+}
+
+
+

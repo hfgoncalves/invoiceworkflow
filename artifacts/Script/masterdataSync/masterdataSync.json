@@ -1,0 +1,60 @@
+{
+	"id": "41231d77-fc6c-eb11-b566-2818786fd42d",
+	"createdAt": "2021-02-12T06:35:16.090Z",
+	"createdBy": "ole-andre.haugen@neptune-software.com",
+	"globalScripts": [
+		{
+			"id": "15163D7E-F764-EB11-988A-2818786FC240",
+			"name": "utils",
+			"contextname": "utils"
+		}
+	],
+	"externalModules": [],
+	"entitySets": [
+		{
+			"id": "4EDE3BC5-FA6C-EB11-B566-2818786FD42D",
+			"name": "invoice_cskt",
+			"contextname": "invoice_cskt"
+		},
+		{
+			"id": "4FC9AA99-FA6C-EB11-B566-2818786FD42D",
+			"name": "invoice_lfa1",
+			"contextname": "invoice_lfa1"
+		},
+		{
+			"id": "026389B1-FA6C-EB11-B566-2818786FD42D",
+			"name": "invoice_skat",
+			"contextname": "invoice_skat"
+		},
+		{
+			"id": "12750F78-B782-EB11-85AA-2818786F9D68",
+			"name": "invoice_t005",
+			"contextname": "invoice_t005"
+		},
+		{
+			"id": "A434C9EE-B782-EB11-85AA-2818786F9D68",
+			"name": "invoice_tax_codes",
+			"contextname": "invoice_tax_codes"
+		}
+	],
+	"apis": [
+		{
+			"id": "70aa5a5a-4d2d-4832-993b-8080ef5d09ea",
+			"parent": "935392df-686c-eb11-b566-2818786fd42d",
+			"name": "/masterdata",
+			"contextname": "masterdata",
+			"method": "GET"
+		}
+	],
+	"name": "masterdataSync",
+	"ver": "21.7.1.733",
+	"description": null,
+	"content": "file:///content.script",
+	"useAsGlobalScript": false,
+	"transpiledContent": null,
+	"lastRunSuccessful": true,
+	"isTypescript": false,
+	"language": "javascript",
+	"jsscriptGroup": "b1a13a28-726b-eb11-b566-2818786fd42d",
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784"
+}

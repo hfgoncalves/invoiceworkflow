@@ -1,0 +1,2 @@
+wfData = await globals.utils.stepDetermination(wfData, 2);
+complete();

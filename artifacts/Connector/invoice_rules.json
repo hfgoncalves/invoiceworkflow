@@ -1,0 +1,17 @@
+{
+	"id": "15a37978-526a-ed11-9f5e-0022489e2f99",
+	"createdAt": "2022-11-22T10:43:16.950Z",
+	"createdBy": "jon.arne.skaarud@neptune-software.com",
+	"settings": {
+		"tableid": "21f2f950-6f6b-eb11-b566-2818786fd42d",
+		"hasDocumentation": false
+	},
+	"documentation": [],
+	"name": "invoice_rules",
+	"description": "Invoice Rules",
+	"group": null,
+	"type": "T",
+	"ver": "22.11.22.1043",
+	"disabled": false,
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784"
+}

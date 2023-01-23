@@ -1,0 +1,2 @@
+await entities.invoice_header.delete(req.body.id);
+complete();

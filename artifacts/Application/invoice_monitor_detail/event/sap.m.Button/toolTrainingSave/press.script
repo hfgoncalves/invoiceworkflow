@@ -1,0 +1,13 @@
+// Find Mapping Identifer
+var identifier = ModelData.FindFirst(modelRule.oData.rules, "type", "rule");
+
+if (identifier) {
+    modelRule.oData.str = identifier.str;
+} else {
+    sap.m.MessageToast.show("Rule Identifier Missing");
+    return;
+}
+
+apiruleSave({
+    data: modelRule.oData
+});

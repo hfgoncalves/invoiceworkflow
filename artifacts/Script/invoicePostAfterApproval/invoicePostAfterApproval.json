@@ -1,0 +1,34 @@
+{
+	"id": "8ccad164-536d-eb11-b566-2818786fd42d",
+	"createdAt": "2021-02-12T16:57:31.603Z",
+	"createdBy": "ole-andre.haugen@neptune-software.com",
+	"globalScripts": [],
+	"externalModules": [],
+	"entitySets": [
+		{
+			"id": "5A669A1E-F466-EB11-988A-2818786FC240",
+			"name": "invoice_header",
+			"contextname": "invoice_header"
+		}
+	],
+	"apis": [
+		{
+			"id": "be62f77b-55bd-4f09-fa22-c516900830ad",
+			"parent": "935392df-686c-eb11-b566-2818786fd42d",
+			"name": "/post",
+			"contextname": "post",
+			"method": "POST"
+		}
+	],
+	"name": "invoicePostAfterApproval",
+	"ver": "22.3.15.824",
+	"description": null,
+	"content": "file:///content.script",
+	"useAsGlobalScript": false,
+	"transpiledContent": null,
+	"lastRunSuccessful": false,
+	"isTypescript": false,
+	"language": "javascript",
+	"jsscriptGroup": "b1a13a28-726b-eb11-b566-2818786fd42d",
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784"
+}

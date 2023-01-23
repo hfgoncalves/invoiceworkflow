@@ -1,0 +1,5 @@
+if (typeof invoiceupdatedAt === "undefined" || invoiceupdatedAt === null || invoiceupdatedAt === "") { return; }
+jQuery.sap.require("sap.ui.core.format.DateFormat");
+var oDateFormat = sap.ui.core.format.DateFormat.getDateTimeInstance();
+var formattedText = oDateFormat.format(new Date(parseInt(invoiceupdatedAt)));
+return formattedText;

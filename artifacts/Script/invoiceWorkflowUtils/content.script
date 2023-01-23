@@ -1,0 +1,93 @@
+async function approverDetermination(wfData, step) {
+
+    let approver;
+    let invoice = await entities.invoice_header.findOne(wfData.objectType);
+
+    const approvers = await entities.invoice_approvers.findOne({ KOSTL: invoice.KOSTL });
+    const lfa1 = await entities.invoice_lfa1.findOne({ "LIFNR": invoice.LIFNR });
+
+    switch (step) {
+
+        case 1:
+            approver = approvers.approver1;
+            break;
+
+        case 2:
+            approver = approvers.approver2;
+            break;
+
+        case 3:
+            approver = approvers.approver3;
+            break;
+
+        default:
+            break;
+
+    }
+
+    if (approver) {
+
+        wfData.approvers = [approver];
+
+        invoice.APPROVERS_EMAIL = approver;
+        invoice.STATUS = 92;
+
+        await sendEmail(approver, "Invoice Approval: Step 1", null, "support@neptune-software.com", "7B3C809B-1D92-EB11-85AA-2818786F9D68", { invfrom: lfa1.NAME, name: approver });
+
+    } else {
+
+        invoice.STATUS = 93;
+
+        result.data = {
+            status: "E",
+            text: invoice.KOSTL + ": No Approver Found"
+        }
+
+    }
+
+    await entities.invoice_header.save(invoice);
+
+    return wfData;
+
+}
+
+async function stepDetermination(wfData, step) {
+
+    const invoice = await entities.invoice_header.findOne(wfData.objectType);
+
+    let amount = invoice.WRBTR;
+
+    if (invoice.WAERS === "NOK" || invoice.WAERS === "SEK") amount = amount / 10;
+
+    switch (step) {
+
+        case 1:
+            if (amount > 15000) {
+                wfData.result = false;
+            } else {
+                wfData.result = true;
+            }
+            break;
+
+        case 2:
+            if (amount > 30000) {
+                wfData.result = false;
+            } else {
+                wfData.result = true;
+            }
+            break;
+
+        default:
+            wfData.result = true;
+            break;
+
+    }
+
+    return wfData;
+
+}
+
+complete({
+    approverDetermination,
+    stepDetermination
+})

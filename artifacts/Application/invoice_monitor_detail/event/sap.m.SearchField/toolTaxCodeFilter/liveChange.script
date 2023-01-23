@@ -1,0 +1,10 @@
+var binding = tabTaxCode.getBinding("items");
+var filter = new sap.ui.model.Filter({
+    filters: [
+        new sap.ui.model.Filter("KALSM", "Contains", this.getValue()),
+        new sap.ui.model.Filter("MWSKZ", "Contains", this.getValue()),
+        new sap.ui.model.Filter("TEXT1", "Contains", this.getValue()),
+    ],
+    and: false
+})
+binding.filter([filter]);

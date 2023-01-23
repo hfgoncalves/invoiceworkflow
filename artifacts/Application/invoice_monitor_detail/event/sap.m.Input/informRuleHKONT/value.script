@@ -1,0 +1,9 @@
+if (typeof HKONT === "undefined" || HKONT === null || HKONT === "") { return; }
+
+var SKAT = ModelData.FindFirst(modelMasterData.oData.SKAT, "SAKNR", HKONT)
+
+if (SKAT) {
+    return SKAT.SAKNR.replace(/^0+/, "") + " " + SKAT.TXT20;
+} else {
+    return HKONT;
+}

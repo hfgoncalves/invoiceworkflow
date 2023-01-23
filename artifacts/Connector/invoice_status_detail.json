@@ -1,0 +1,17 @@
+{
+	"id": "a2e8fe93-526a-ed11-9f5e-0022489e2f99",
+	"createdAt": "2022-11-22T10:44:03.116Z",
+	"createdBy": "jon.arne.skaarud@neptune-software.com",
+	"settings": {
+		"tableid": "29f74f44-f466-eb11-988a-2818786fc240",
+		"hasDocumentation": false
+	},
+	"documentation": [],
+	"name": "invoice_status_detail",
+	"description": "Invoice Status Detail",
+	"group": null,
+	"type": "T",
+	"ver": "22.11.22.1045",
+	"disabled": false,
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784"
+}

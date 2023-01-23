@@ -1,0 +1,48 @@
+{
+	"id": "26d5b79f-ad7f-ed11-9f5e-0022489e2f99",
+	"createdAt": "2022-12-19T14:58:41.406Z",
+	"createdBy": "ole-andre.haugen@neptune-software.com",
+	"globalScripts": [],
+	"externalModules": [
+		{
+			"id": "B2C8DD70-AF7F-ED11-9F5E-0022489E2F99",
+			"name": "typeorm",
+			"contextname": "typeorm",
+			"path": "typeorm"
+		}
+	],
+	"entitySets": [
+		{
+			"id": "8DF410CB-BF6E-EB11-B566-2818786FD42D",
+			"name": "invoice_approval",
+			"contextname": "invoice_approval"
+		},
+		{
+			"id": "70C793EE-BF6E-EB11-B566-2818786FD42D",
+			"name": "invoice_approval_users",
+			"contextname": "invoice_approval_users"
+		},
+		{
+			"id": "5A669A1E-F466-EB11-988A-2818786FC240",
+			"name": "invoice_header",
+			"contextname": "invoice_header"
+		},
+		{
+			"id": "4FC9AA99-FA6C-EB11-B566-2818786FD42D",
+			"name": "invoice_lfa1",
+			"contextname": "invoice_lfa1"
+		}
+	],
+	"apis": [],
+	"name": "invoiceWorkflowApprovers",
+	"ver": "23.1.9.1354",
+	"description": null,
+	"content": "file:///content.script",
+	"useAsGlobalScript": false,
+	"transpiledContent": null,
+	"lastRunSuccessful": true,
+	"isTypescript": false,
+	"language": "javascript",
+	"jsscriptGroup": "b1a13a28-726b-eb11-b566-2818786fd42d",
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784"
+}

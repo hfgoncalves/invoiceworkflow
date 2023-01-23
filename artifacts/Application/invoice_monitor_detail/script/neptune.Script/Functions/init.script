@@ -1,0 +1,83 @@
+// Get required methods
+jQuery.sap.require("sap.ui.core.format.DateFormat");
+jQuery.sap.require("sap.ui.core.format.FileSizeFormat");
+
+var viewidRule = "pdfViewRule" + ModelData.genID();
+var viewidDetail = "pdfViewDetail" + ModelData.genID();
+var config = null;
+
+var selectedBukrs = {};
+
+sap.ui.getCore().attachInit(function (data) {
+    sap.ui.getCore().setModel(modelMasterData, "MasterData");
+    htmlViewRule.setContent("<iframe id='" + viewidRule + "' class='nepViewer' height='100%' width='100%' align='center' border='0'></iframe>");
+    htmlViewDetail.setContent("<iframe id='" + viewidDetail + "' class='nepViewer' height='100%' width='100%' align='center' border='0'></iframe>");
+});
+
+sap.n.Shell.attachBeforeDisplay(function (data) {
+
+    config = data;
+
+    busyDialog.close();
+
+    // Clear PDF Viewers
+    $("#" + viewidRule).attr("src", "");
+    $("#" + viewidDetail).attr("src", "");
+
+    // Load Master Data
+    if (!modelMasterData.oData.LFA1) {
+        apimasterdata().then(function () {
+            beforeDisplay();
+        })
+    } else {
+        beforeDisplay()
+    }
+
+});
+
+function beforeDisplay() {
+
+    // Upload 
+    if (config.data._defaultData) {
+
+        oApp.to(oPageUpload);
+
+        modeltabFiles.setData([]);
+        modeltabFiles.refresh();
+
+        // Get Rules
+        apiinvoiceGet({ parameters: { "id": null } });
+        return;
+    }
+
+    // Rule 
+    if (config.data.hasOwnProperty("vendorid") || config.events.objectPressed === "RULEID") {
+
+        var ruleid = config.data.id;
+        if (config.events.objectPressed === "RULEID") ruleid = config.data.RULEID;
+
+        oApp.to(oPageTraining);
+
+        apiruleGet({ parameters: { "id": ruleid } }).then(function (data) {
+
+            data.invoice = {};
+
+            modelRule.setData(data);
+            modelRule.refresh();
+
+            $("#" + viewidRule).attr("src", modelRule.oData.example);
+
+            // Parse PDF
+            parser.getText(modelRule.oData.example, modelRule.oData.invoice, { training: true })
+
+        });
+        return;
+    }
+
+    // Invoice
+    apiinvoiceGet({ parameters: { "id": config.data.id } });
+
+
+}
+
+

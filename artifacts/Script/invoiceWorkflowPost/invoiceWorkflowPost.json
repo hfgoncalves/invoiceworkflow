@@ -1,0 +1,46 @@
+{
+	"id": "dd5b252a-4a6d-eb11-b566-2818786fd42d",
+	"createdAt": "2021-02-12T15:51:27.703Z",
+	"createdBy": "ole-andre.haugen@neptune-software.com",
+	"globalScripts": [],
+	"externalModules": [],
+	"entitySets": [
+		{
+			"id": "5A669A1E-F466-EB11-988A-2818786FC240",
+			"name": "invoice_header",
+			"contextname": "invoice_header"
+		},
+		{
+			"id": "4FC9AA99-FA6C-EB11-B566-2818786FD42D",
+			"name": "invoice_lfa1",
+			"contextname": "invoice_lfa1"
+		}
+	],
+	"apis": [
+		{
+			"id": "be62f77b-55bd-4f09-fa22-c516900830ad",
+			"parent": "935392df-686c-eb11-b566-2818786fd42d",
+			"name": "/post",
+			"contextname": "post",
+			"method": "POST"
+		},
+		{
+			"id": "70aa5a5a-4d2d-4832-993b-8080ef5d09ea",
+			"parent": "935392df-686c-eb11-b566-2818786fd42d",
+			"name": "/masterdata",
+			"contextname": "masterdata",
+			"method": "GET"
+		}
+	],
+	"name": "invoiceWorkflowPost",
+	"ver": "23.1.10.1517",
+	"description": null,
+	"content": "file:///content.script",
+	"useAsGlobalScript": false,
+	"transpiledContent": null,
+	"lastRunSuccessful": true,
+	"isTypescript": false,
+	"language": "javascript",
+	"jsscriptGroup": "b1a13a28-726b-eb11-b566-2818786fd42d",
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784"
+}

@@ -1,0 +1,10 @@
+const { In, } = operators;
+
+let query = {};
+
+if (req.body.STATUS && req.body.STATUS.length) query.STATUS = In(req.body.STATUS);
+
+const invoices = await entities.invoice_header.find(query);
+
+result.data = invoices;
+complete();

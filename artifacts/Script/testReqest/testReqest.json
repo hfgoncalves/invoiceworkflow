@@ -1,0 +1,28 @@
+{
+	"id": "81ec2e96-1aaa-ec11-a99b-2818783cf437",
+	"createdAt": "2022-03-22T19:59:31.713Z",
+	"createdBy": "jon.arne.skaarud@neptune-software.com",
+	"globalScripts": [],
+	"externalModules": [],
+	"entitySets": [],
+	"apis": [
+		{
+			"id": "70aa5a5a-4d2d-4832-993b-8080ef5d09ea",
+			"parent": "935392df-686c-eb11-b566-2818786fd42d",
+			"name": "/masterdata",
+			"contextname": "masterdata",
+			"method": "GET"
+		}
+	],
+	"name": "testReqest",
+	"ver": "22.12.20.1035",
+	"description": "test",
+	"content": "file:///content.script",
+	"useAsGlobalScript": false,
+	"transpiledContent": null,
+	"lastRunSuccessful": true,
+	"isTypescript": false,
+	"language": "javascript",
+	"jsscriptGroup": "b1a13a28-726b-eb11-b566-2818786fd42d",
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784"
+}

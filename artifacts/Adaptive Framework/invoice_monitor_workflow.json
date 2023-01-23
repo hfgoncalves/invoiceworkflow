@@ -1,0 +1,754 @@
+{
+	"id": "1dbf91fc-476d-eb11-b566-2818786fd42d",
+	"createdAt": "2021-02-12T15:35:52.263Z",
+	"createdBy": "ole-andre.haugen@neptune-software.com",
+	"settings": {
+		"properties": {
+			"report": {
+				"showIcon": true,
+				"iconButtonClose": "",
+				"textButtonClose": "Close",
+				"typeButtonClose": "Transparent",
+				"iconButtonCreate": "",
+				"textButtonCreate": "Create",
+				"typeButtonCreate": "Emphasized",
+				"iconButtonExport": "sap-icon://excel-attachment",
+				"textButtonExport": "Export",
+				"typeButtonExport": "Transparent",
+				"iconButtonMultiSelect": "",
+				"textButtonMultiSelect": "Process Selected",
+				"typeButtonMultiSelect": "Emphasized",
+				"iconButtonRun": "",
+				"textButtonRun": "Update",
+				"typeButtonRun": "Emphasized",
+				"enableRun": true,
+				"enableCreate": true,
+				"enableDelete": false,
+				"enableExport": false,
+				"enableMultiSelect": false,
+				"enableVariant": true,
+				"hideHeader": false,
+				"autoRun": true,
+				"autoRunFocus": true,
+				"title": "Invoices",
+				"subTitle": "Processing",
+				"avatarIcon": "sap-icon://pdf-attachment",
+				"_navigationItemPress": {
+					"destinationType": "A",
+					"openAs": "P",
+					"butType": "Accept",
+					"destinationTargetA": "invoice_monitor_detail",
+					"keyField": []
+				},
+				"_navigationCreate": {
+					"destinationType": "A",
+					"openAs": "D",
+					"butType": "Accept",
+					"destinationTargetA": "invoice_upload",
+					"keyField": [],
+					"dialogHeight": "600px"
+				},
+				"_navigationMultiSelect": {
+					"destinationType": "A",
+					"openAs": "P",
+					"butType": "Accept",
+					"destinationTargetA": "invoice_monitor_detail",
+					"keyField": []
+				},
+				"enableClose": false,
+				"searchLabel": "Search",
+				"searchPlaceholder": "",
+				"iconButtonImport": "sap-icon://fa-solid/file-import",
+				"textButtonImport": "Import",
+				"typeButtonImport": "Transparent",
+				"enableImport": false,
+				"actionButtonLeft": false
+			},
+			"form": {
+				"enableCompact": false,
+				"headerExpanded": true
+			},
+			"table": {
+				"enablePagination": true,
+				"paginationRows": "30",
+				"alternateRowColors": true,
+				"enableCompact": true,
+				"fixedLayout": false,
+				"inset": false,
+				"initialGroupField": "STATUS",
+				"action1Text": "",
+				"action1Type": "Transparent",
+				"action2Text": "Action 2",
+				"action2Type": "Transparent",
+				"action3Text": "",
+				"action3Type": "Transparent",
+				"enableAction1": true,
+				"enableAction2": false,
+				"enableAction3": false,
+				"paginationShowSelection": true,
+				"_action1Nav": {
+					"destinationType": "A",
+					"openAs": "D",
+					"butType": "Accept",
+					"destinationTargetA": "invoice_monitor_workflow_reminder",
+					"keyField": [],
+					"dialogWidth": "1280px",
+					"dialogHeight": "800px"
+				},
+				"postProcessingScript": null,
+				"action3Icon": "sap-icon://fa-regular/user-circle",
+				"_action3Nav": {
+					"destinationType": "A",
+					"openAs": "D",
+					"butType": "Accept",
+					"keyField": [],
+					"destinationTargetA": "invoice_wf_approvers",
+					"dialogHeader": false,
+					"dialogResize": false,
+					"dialogTitleField": "XBLNR",
+					"dialogHeight": "800px",
+					"dialogWidth": "1280px"
+				},
+				"headerText": "",
+				"footerText": "",
+				"action1Icon": "sap-icon://email",
+				"showSeparators": "All",
+				"enableAction4": false,
+				"enableAction5": false,
+				"action4Text": "",
+				"action4Type": "Transparent",
+				"action5Text": "",
+				"action5Type": "Transparent"
+			}
+		},
+		"fieldCatalog": [
+			{
+				"name": "APPROVERS_EMAIL",
+				"label": "The Approvers Email",
+				"type": "text"
+			},
+			{
+				"name": "APPROVERS_NAME",
+				"label": "The Approvers Name",
+				"type": "text"
+			},
+			{
+				"name": "ATT_CONTENT",
+				"label": "Attachment Content",
+				"type": "text"
+			},
+			{
+				"name": "ATT_NAME",
+				"label": "Attachment Name",
+				"type": "text"
+			},
+			{
+				"name": "ATT_SIZE",
+				"label": "Attachment Size",
+				"type": "text"
+			},
+			{
+				"name": "ATT_TYPE",
+				"label": "Attachment Type",
+				"type": "text"
+			},
+			{
+				"name": "AUTOPOST",
+				"label": "Automatic Posting in SAP",
+				"type": "boolean"
+			},
+			{
+				"name": "BLDAT",
+				"label": "Incvoice Date",
+				"type": "text"
+			},
+			{
+				"name": "BUDAT",
+				"label": "Posting Date",
+				"type": "text"
+			},
+			{
+				"name": "BUKRS",
+				"label": "Company Code",
+				"type": "text"
+			},
+			{
+				"name": "FAEDT",
+				"label": "Due Date",
+				"type": "text"
+			},
+			{
+				"name": "HKONT",
+				"label": "Account",
+				"type": "text"
+			},
+			{
+				"name": "KIDNO",
+				"label": "Payment Reference",
+				"type": "text"
+			},
+			{
+				"name": "KOSTL",
+				"label": "Cost Center",
+				"type": "text"
+			},
+			{
+				"name": "LIFNR",
+				"label": "Vendor",
+				"type": "text"
+			},
+			{
+				"name": "MWSKZ",
+				"label": "Tax Code",
+				"type": "text"
+			},
+			{
+				"name": "RULEID",
+				"label": "Rule ID",
+				"type": "text"
+			},
+			{
+				"name": "SAP_BELNR",
+				"label": "SAP_BELNR",
+				"type": "text"
+			},
+			{
+				"name": "SAP_GJAHR",
+				"label": "SAP_GJAHR",
+				"type": "text"
+			},
+			{
+				"name": "SAP_MESSAGE",
+				"label": "SAP_MESSAGE",
+				"type": "text"
+			},
+			{
+				"name": "SAP_STATUS",
+				"label": "SAP_STATUS",
+				"type": "text"
+			},
+			{
+				"name": "SGTXT",
+				"label": "Text",
+				"type": "text"
+			},
+			{
+				"name": "STATUS",
+				"label": "Status",
+				"type": "integer"
+			},
+			{
+				"name": "WAERS",
+				"label": "Currency",
+				"type": "text"
+			},
+			{
+				"name": "WFID",
+				"label": "Workflow ID",
+				"type": "text"
+			},
+			{
+				"name": "WRBTR",
+				"label": "Value",
+				"type": "text"
+			},
+			{
+				"name": "XBLNR",
+				"label": "Document Reference",
+				"type": "text"
+			},
+			{
+				"name": "XMWST",
+				"label": "Calculate Tax",
+				"type": "boolean"
+			},
+			{
+				"name": "ZFBDT",
+				"label": "Baseline Date",
+				"type": "timestamptz"
+			},
+			{
+				"name": "createdAt",
+				"label": "Created At",
+				"type": "timestamp"
+			},
+			{
+				"name": "createdBy",
+				"label": "Created By",
+				"type": "text"
+			},
+			{
+				"name": "updatedAt",
+				"label": "Updated At",
+				"type": "timestamp"
+			},
+			{
+				"name": "updatedBy",
+				"label": "Updated By",
+				"type": "text"
+			}
+		],
+		"fieldsSel": [
+			{
+				"text": "Vendor",
+				"type": "MultiSelectLookup",
+				"lookupTable": "invoice_lfa1",
+				"lookupFieldKey": "LIFNR",
+				"lookupFieldText": "NAME1",
+				"lookupShowOnlyText": true,
+				"required": false,
+				"visible": true,
+				"name": "LIFNR",
+				"fieldPos": 1
+			},
+			{
+				"text": "G/L Account",
+				"type": "MultiSelectLookup",
+				"lookupTable": "invoice_skat",
+				"lookupFieldKey": "SAKNR",
+				"lookupFieldText": "TXT20",
+				"lookupShowOnlyText": true,
+				"required": false,
+				"visible": true,
+				"name": "HKONT",
+				"fieldPos": 2
+			},
+			{
+				"text": "Cost Center",
+				"type": "MultiSelectLookup",
+				"lookupTable": "invoice_cskt",
+				"lookupFieldKey": "KOSTL",
+				"lookupFieldText": "KTEXT",
+				"lookupShowOnlyText": true,
+				"required": false,
+				"visible": true,
+				"name": "KOSTL",
+				"fieldPos": 3
+			},
+			{
+				"text": "Status",
+				"type": "MultiSelectLookup",
+				"lookupTable": "invoice_status",
+				"lookupFieldKey": "status",
+				"lookupFieldText": "text",
+				"lookupShowOnlyText": true,
+				"required": false,
+				"visible": true,
+				"name": "STATUS",
+				"fieldPos": 4,
+				"default": "[22,30,91,92]"
+			},
+			{
+				"visible": true,
+				"name": "BUKRS",
+				"text": "Company Code",
+				"fieldPos": 5,
+				"type": "MultiSelectLookup",
+				"lookupTable": "invoice_t001",
+				"lookupFieldKey": "BUKRS",
+				"lookupFieldText": "BUTXT",
+				"lookupShowOnlyText": true
+			},
+			{
+				"visible": true,
+				"name": "updatedAt",
+				"text": "Updated At",
+				"fieldPos": 6,
+				"sysvarValue": "LAST_90",
+				"type": "DateRange"
+			}
+		],
+		"fieldsRun": [
+			{
+				"text": "Status",
+				"wrapping": false,
+				"enableGroup": true,
+				"enableFilter": false,
+				"enableSort": true,
+				"enableSum": false,
+				"visible": true,
+				"name": "STATUS",
+				"fieldPos": 7,
+				"_lookup": {
+					"table": "invoice_status",
+					"textField": "text",
+					"keyField": [
+						{
+							"fieldName": "status",
+							"key": "STATUS",
+							"value": ""
+						}
+					],
+					"hideKey": true,
+					"butType": "Accept"
+				},
+				"type": "ObjectStatus",
+				"objectStatusState": "DE6D72BB-236D-EB11-B566-2818786FD42D",
+				"objectStatusIcon": "sap-icon://fa-solid/info-circle",
+				"valueType": "Lookup",
+				"valueLookup": {
+					"table": "invoice_status",
+					"textField": "text",
+					"keyField": [
+						{
+							"fieldName": "status",
+							"key": "STATUS",
+							"value": ""
+						}
+					],
+					"hideKey": true,
+					"butType": "Accept"
+				},
+				"statusStateType": "Rule",
+				"statusStateRule": "DE6D72BB-236D-EB11-B566-2818786FD42D",
+				"width": ""
+			},
+			{
+				"buttonType": "Transparent",
+				"popinDisplay": "Block",
+				"enableFilter": true,
+				"enableSort": true,
+				"visible": true,
+				"name": "APPROVERS_EMAIL",
+				"text": "Approver",
+				"fieldPos": 8
+			},
+			{
+				"text": "SAP Status",
+				"wrapping": false,
+				"enableGroup": false,
+				"enableFilter": true,
+				"enableSort": true,
+				"enableSum": false,
+				"visible": true,
+				"name": "SAP_MESSAGE",
+				"fieldPos": 9
+			},
+			{
+				"text": "SAP Document",
+				"wrapping": false,
+				"enableGroup": false,
+				"enableFilter": true,
+				"enableSort": true,
+				"enableSum": false,
+				"visible": true,
+				"name": "SAP_BELNR",
+				"fieldPos": 10
+			},
+			{
+				"text": "SAP Year",
+				"wrapping": false,
+				"enableGroup": false,
+				"enableFilter": true,
+				"enableSort": true,
+				"enableSum": false,
+				"visible": true,
+				"name": "SAP_GJAHR",
+				"fieldPos": 11
+			},
+			{
+				"text": "Incvoice Date",
+				"wrapping": false,
+				"enableGroup": false,
+				"enableFilter": true,
+				"enableSort": true,
+				"enableSum": false,
+				"visible": true,
+				"name": "BLDAT",
+				"fieldPos": 12,
+				"formatter": "sapdate01"
+			},
+			{
+				"text": "Document Reference",
+				"wrapping": false,
+				"enableGroup": false,
+				"enableFilter": true,
+				"enableSort": true,
+				"enableSum": false,
+				"visible": true,
+				"name": "XBLNR",
+				"fieldPos": 13
+			},
+			{
+				"text": "Company Code",
+				"wrapping": false,
+				"enableGroup": false,
+				"enableFilter": true,
+				"enableSort": true,
+				"enableSum": false,
+				"visible": true,
+				"name": "BUKRS",
+				"fieldPos": 14,
+				"_lookup": {
+					"table": "invoice_t001",
+					"textField": "BUTXT",
+					"keyField": [
+						{
+							"fieldName": "BUKRS",
+							"key": "BUKRS",
+							"value": ""
+						}
+					],
+					"hideKey": true,
+					"butType": "Accept"
+				},
+				"valueType": "Lookup",
+				"valueLookup": {
+					"table": "invoice_t001",
+					"textField": "BUTXT",
+					"keyField": [
+						{
+							"fieldName": "BUKRS",
+							"key": "BUKRS",
+							"value": ""
+						}
+					],
+					"hideKey": true,
+					"butType": "Accept"
+				}
+			},
+			{
+				"text": "Vendor",
+				"wrapping": false,
+				"enableGroup": false,
+				"enableFilter": true,
+				"enableSort": true,
+				"enableSum": false,
+				"visible": true,
+				"name": "LIFNR",
+				"fieldPos": 15,
+				"_lookup": {
+					"table": "invoice_lfa1",
+					"textField": "NAME1",
+					"keyField": [
+						{
+							"fieldName": "LIFNR",
+							"key": "LIFNR",
+							"value": ""
+						}
+					],
+					"hideKey": true,
+					"butType": "Accept"
+				},
+				"valueType": "Lookup",
+				"valueLookup": {
+					"table": "invoice_lfa1",
+					"textField": "NAME1",
+					"keyField": [
+						{
+							"fieldName": "LIFNR",
+							"key": "LIFNR",
+							"value": ""
+						}
+					],
+					"hideKey": true,
+					"butType": "Accept"
+				},
+				"formatter": "zero"
+			},
+			{
+				"text": "Account",
+				"wrapping": false,
+				"enableGroup": false,
+				"enableFilter": true,
+				"enableSort": true,
+				"enableSum": false,
+				"visible": true,
+				"name": "HKONT",
+				"fieldPos": 16,
+				"_lookup": {
+					"table": "invoice_skat",
+					"textField": "TXT20",
+					"keyField": [
+						{
+							"fieldName": "SAKNR",
+							"key": "HKONT",
+							"value": ""
+						}
+					],
+					"hideKey": true,
+					"butType": "Accept"
+				},
+				"valueType": "Lookup",
+				"valueLookup": {
+					"table": "invoice_skat",
+					"textField": "TXT20",
+					"keyField": [
+						{
+							"fieldName": "SAKNR",
+							"key": "HKONT",
+							"value": ""
+						}
+					],
+					"hideKey": true,
+					"butType": "Accept"
+				},
+				"formatter": "zero"
+			},
+			{
+				"text": "Cost Center",
+				"wrapping": false,
+				"enableGroup": false,
+				"enableFilter": true,
+				"enableSort": true,
+				"enableSum": false,
+				"visible": true,
+				"name": "KOSTL",
+				"fieldPos": 17,
+				"_lookup": {
+					"table": "invoice_cskt",
+					"textField": "KTEXT",
+					"keyField": [
+						{
+							"fieldName": "KOSTL",
+							"key": "KOSTL",
+							"value": ""
+						}
+					],
+					"hideKey": true,
+					"butType": "Accept"
+				},
+				"valueType": "Lookup",
+				"valueLookup": {
+					"table": "invoice_cskt",
+					"textField": "KTEXT",
+					"keyField": [
+						{
+							"fieldName": "KOSTL",
+							"key": "KOSTL",
+							"value": ""
+						}
+					],
+					"hideKey": true,
+					"butType": "Accept"
+				},
+				"formatter": "zero"
+			},
+			{
+				"text": "Value",
+				"type": "ObjectNumber",
+				"objectNumberUnit": "{WAERS}",
+				"hAlign": "End",
+				"wrapping": false,
+				"enableGroup": false,
+				"enableFilter": true,
+				"enableSort": true,
+				"enableSum": false,
+				"visible": true,
+				"name": "WRBTR",
+				"fieldPos": 18,
+				"formatter": "number03",
+				"numberUnitType": "Binding",
+				"numberUnitBinding": "WAERS"
+			},
+			{
+				"text": "Updated At",
+				"hAlign": "End",
+				"formatter": "date00",
+				"wrapping": false,
+				"enableGroup": false,
+				"enableFilter": false,
+				"enableSort": true,
+				"enableSum": false,
+				"visible": true,
+				"name": "updatedAt",
+				"fieldPos": 19
+			},
+			{
+				"enableFilter": false,
+				"enableSort": false,
+				"visible": false,
+				"name": "WFID",
+				"text": "Workflow ID",
+				"fieldPos": 20
+			}
+		],
+		"defaultVariant": {
+			"id": "98850817-e670-4eda-e5a3-e16581e0d6da",
+			"colOrder": "key_a_to_z",
+			"rowOrder": "key_a_to_z",
+			"row": [],
+			"column": [],
+			"val": [],
+			"inclusions": {},
+			"exclusions": {}
+		},
+		"translation": {
+			"EN": {
+				"report": {
+					"title": "",
+					"subTitle": "",
+					"textButtonClose": "",
+					"textButtonCreate": "",
+					"textButtonExport": "Export",
+					"textButtonImport": "",
+					"textButtonMultiSelect": "",
+					"textButtonRun": "",
+					"searchLabel": "",
+					"searchPlaceholder": ""
+				},
+				"form": {},
+				"table": {
+					"headerText": "",
+					"footerText": "",
+					"noDataText": ""
+				},
+				"fieldCatalog": {
+					"BUKRS": "",
+					"WAERS": "",
+					"LIFNR": "",
+					"HKONT": "",
+					"WRBTR": "",
+					"ZFBDT": "",
+					"KIDNO": "",
+					"XBLNR": "",
+					"SGTXT": "",
+					"STATUS": "",
+					"ATT_NAME": "",
+					"ATT_SIZE": "",
+					"ATT_TYPE": "",
+					"ATT_CONTENT": "",
+					"RULEID": "",
+					"BLDAT": "",
+					"KOSTL": "",
+					"SAP_STATUS": "",
+					"SAP_MESSAGE": "",
+					"SAP_BELNR": "",
+					"SAP_GJAHR": "",
+					"WFID": "",
+					"XMWST": "",
+					"BUDAT": "",
+					"MWSKZ": "",
+					"AUTOPOST": "",
+					"FAEDT": "",
+					"APPROVERS": "",
+					"updatedAt": "",
+					"createdAt": "",
+					"updatedBy": "",
+					"createdBy": ""
+				}
+			}
+		}
+	},
+	"name": "invoice_monitor_workflow",
+	"description": "",
+	"group": "",
+	"type": "C",
+	"connectorid": "7c4872b9-01eb-ec11-b656-2818783cac3f",
+	"scriptSel": null,
+	"scriptRun": null,
+	"tableid": "5a669a1e-f466-eb11-988a-2818786fc240",
+	"ver": "23.1.11.924",
+	"disabled": false,
+	"appType": "A",
+	"application": "planet9_adaptive_list",
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784",
+	"roles": [],
+	"scriptSelObj": null,
+	"scriptRunObj": null,
+	"tableObj": {
+		"id": "5a669a1e-f466-eb11-988a-2818786fc240",
+		"name": "invoice_header",
+		"ver": "22.8.11.1046"
+	}
+}

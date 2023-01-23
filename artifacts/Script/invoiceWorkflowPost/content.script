@@ -1,0 +1,78 @@
+let invoice = await entities.invoice_header.findOne(wfData.objectType);
+
+
+let refNo = invoice.XBLNR;
+let lifnr = invoice.LIFNR;
+
+const lfa1 = await entities.invoice_lfa1.findOne({ "LIFNR": lifnr });
+
+try {
+
+    if (wfData.fromAction === "Reject") {
+
+        invoice.STATUS = 91;
+        const html91 = `<html><body><h4>Approval Declined Doc.Ref.: ${refNo}</h4><br> Vendor: ${lfa1.NAME1} </body></html>`;
+
+        if (p9.system.role === "PRD") {
+            await sendEmail("invoice-norway@neptune-software.com", "91 Approval Declined", html91);
+        }
+
+
+    } else {
+
+        const request = await apis.post({
+            data: { WA_INVOICE: invoice }
+        });
+
+        const WA_INVOICE = request.data.result.WA_INVOICE
+        invoice.SAP_STATUS = WA_INVOICE.SAP_STATUS;
+        invoice.SAP_MESSAGE = WA_INVOICE.SAP_MESSAGE;
+        invoice.SAP_BELNR = WA_INVOICE.SAP_BELNR;
+        invoice.SAP_GJAHR = WA_INVOICE.SAP_GJAHR;
+
+        if (invoice.SAP_STATUS === "S") {
+            invoice.STATUS = 30;
+        } else {
+            invoice.STATUS = 92;
+            const html92 = `<html><body><h4>Error posting, Doc.Ref.: ${refNo}</h4><br> Vendor: ${lfa1.NAME1} </body></html>`;
+
+            if (p9.system.role === "PRD") {
+                await sendEmail("invoice-norway@neptune-software.com", "92 Error in Posting", html92);
+            }
+        }
+
+    }
+
+    await entities.invoice_header.save(invoice);
+    complete();
+
+} catch (request) {
+
+    if (wfData.fromAction === "Reject") {
+
+        invoice.STATUS = 91;
+
+    } else {
+
+        log.warn("Document could not be sent to SAP");
+        let errorText = "Error posting in document could not sent to SAP";
+
+        if (request.response && request.response.statusText) errorText = request.response.statusText;
+
+        invoice.SAP_STATUS = "E";
+        invoice.SAP_MESSAGE = errorText;
+
+        invoice.STATUS = 92;
+
+        const html = `<html><body><h4>Error posting document to SAP, Doc.Ref.: ${refNo}</h4><br> Vendor: ${lfa1.NAME1} </body></html>`;
+
+        if (p9.system.role === "PRD") {
+            await sendEmail("invoice-norway@neptune-software.com", "S4 Status: Error Posting document to SAP", html);
+        }
+
+    }
+
+    await entities.invoice_header.save(invoice);
+    complete();
+
+}

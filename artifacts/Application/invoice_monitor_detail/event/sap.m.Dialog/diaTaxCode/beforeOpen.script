@@ -1,0 +1,23 @@
+//Find det selected Company Code and its LAND1 value.
+//LAND1 is used to find KALSM in T005, KALSM defines valid tax_codes to be presented.
+
+let lv_bukrs = "";
+if (oApp.getCurrentPage() === oPageTraining) {
+    lv_bukrs = modelRule.oData.BUKRS;
+} else {
+    lv_bukrs = modelAppData.oData.invoice.BUKRS;
+}
+if(!lv_bukrs) {
+    sap.m.MessageToast.show("Company has to be selected before Tax Code!");
+    diaTaxCode.close();
+} else {
+
+
+    let lv_land1 = modelMasterData.oData.T001.find(x => x.BUKRS == lv_bukrs).LAND1;
+    let lv_kalsm = modelMasterData.oData.T005.find(y => y.LAND1 == lv_land1).KALSM;
+    let taxData = modelMasterData.oData.TAX_CODES.filter(z => z.KALSM == lv_kalsm);
+
+    modeltabTaxCode.setData(taxData);
+
+    toolTaxCodeFilter.setValue();
+}

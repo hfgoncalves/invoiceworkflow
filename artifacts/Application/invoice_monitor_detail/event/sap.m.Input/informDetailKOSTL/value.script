@@ -1,0 +1,9 @@
+if (typeof invoiceKOSTL === "undefined" || invoiceKOSTL === null || invoiceKOSTL === "") { return; }  
+
+var CSKT = ModelData.FindFirst(modelMasterData.oData.CSKT, "KOSTL", invoiceKOSTL)
+
+if (CSKT) {
+    return CSKT.KOSTL.replace(/^0+/, "") + " " + CSKT.KTEXT;
+} else {
+    return invoiceKOSTL;
+}

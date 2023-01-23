@@ -1,0 +1,7 @@
+const workflow = await p9.wf.get("64445A31-E9A9-EC11-A99B-2818783CF437");
+
+console.log("WF: ", workflow.log[2].approvers);
+
+
+reasult = "test";
+complete();

@@ -1,0 +1,9 @@
+var binding = tabCost.getBinding("items");
+var filter = new sap.ui.model.Filter({
+    filters: [
+        new sap.ui.model.Filter("KOSTL", "Contains", this.getValue()),
+        new sap.ui.model.Filter("KTEXT", "Contains", this.getValue())
+    ],
+    and: false
+})
+binding.filter([filter]);

@@ -1,0 +1,17 @@
+{
+	"id": "86cba8bb-516a-ed11-9f5e-0022489e2f99",
+	"createdAt": "2022-11-22T10:38:00.166Z",
+	"createdBy": "jon.arne.skaarud@neptune-software.com",
+	"settings": {
+		"tableid": "4fc9aa99-fa6c-eb11-b566-2818786fd42d",
+		"hasDocumentation": false
+	},
+	"documentation": [],
+	"name": "invoice_masterdata_vendor",
+	"description": "Invoice Masterdata Vendor",
+	"group": null,
+	"type": "T",
+	"ver": "22.11.22.1038",
+	"disabled": false,
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784"
+}

@@ -1,0 +1,21 @@
+
+// Updated Status
+switch (modelAppData.oData.invoice.STATUS) {
+
+    case 3:
+    case 90:
+        modelAppData.oData.invoice.STATUS = 20;
+        break;
+
+    default:
+        break;
+
+}
+
+
+apiinvoiceSave({
+    data: [modelAppData.oData.invoice]
+}).then(function () {
+    sap.m.MessageToast.show("Saved");
+    config.events.afterChildSave();
+})

@@ -1,0 +1,19 @@
+{
+	"id": "42a8a0fe-648a-ed11-9f5e-0022489e2f99",
+	"createdAt": "2023-01-02T06:16:30.166Z",
+	"createdBy": "ole-andre.haugen@neptune-software.com",
+	"settings": {
+		"tableid": "367b4474-628a-ed11-9f5e-0022489e2f99",
+		"hasDocumentation": false
+	},
+	"documentation": {
+		"content": ""
+	},
+	"name": "invoice_approvers",
+	"description": "Invoice Approvers Multistep",
+	"group": null,
+	"type": "T",
+	"ver": "23.1.2.618",
+	"disabled": false,
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784"
+}

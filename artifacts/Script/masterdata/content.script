@@ -1,0 +1,24 @@
+try {
+
+    let T001 = await entities.invoice_t001.find({ order: { "BUTXT": "ASC" } });
+    T001.unshift({ BUKRS: "", BUTXT: "" });
+
+    result.data = {
+        status: await entities.invoice_status.find({ order: { "text": "ASC" } }),
+        T001: T001,
+        SKAT: await entities.invoice_skat.find({ order: { "SAKNR": "ASC" } }),
+        LFA1: await entities.invoice_lfa1.find({ order: { "LIFNR": "ASC" } }),
+        CSKT: await entities.invoice_cskt.find({ order: { "KOSTL": "ASC" } }),
+        T005: await entities.invoice_t005.find({ order: { "LAND1": "ASC" } }),
+        TAX_CODES: await entities.invoice_tax_codes.find({ order: { "KALSM": "ASC" } }),
+    }
+
+    complete();
+
+} catch (error) {
+    log.error("Error in request: ", error);
+    return fail();
+}
+
+
+

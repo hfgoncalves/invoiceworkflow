@@ -1,0 +1,15 @@
+apiinvoiceSave({
+    data: [modelAppData.oData.invoice]
+}).then(function () {
+
+    apiinvoicePostAfterApproval({
+        data: modelAppData.oData.invoice
+    }).then(function (data) {
+
+        // TODO Error handling
+        if (config.events.afterChildSave) config.events.afterChildSave();
+        if (config.events.onChildBack) config.events.onChildBack();
+    })
+
+})
+

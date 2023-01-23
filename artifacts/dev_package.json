@@ -1,0 +1,310 @@
+{
+	"id": "56e95ee8-0a79-ec11-94f6-281878510784",
+	"createdAt": "2022-01-19T09:33:50.693Z",
+	"createdBy": "jon.arne.skaarud@neptune-software.com",
+	"git": {
+		"targetServers": [],
+		"remote": "https://github.com/hfgoncalves/invoiceworkflow.git"
+	},
+	"name": "InvoiceMonitor",
+	"description": "Invoive monitor",
+	"ver": "23.1.23.1021",
+	"enableCICD": true,
+	"apps": [
+		{
+			"id": "f67dbfe2-046d-eb11-b566-2818786fd42d",
+			"application": "invoice_monitor_detail",
+			"title": "Invoice Monitor",
+			"description": "Invoice Monitor"
+		}
+	],
+	"api": [],
+	"odataSource": [],
+	"odataMock": [],
+	"dictionary": [
+		{
+			"id": "5a669a1e-f466-eb11-988a-2818786fc240",
+			"name": "invoice_header",
+			"description": "INVOICE: Header"
+		},
+		{
+			"id": "367b4474-628a-ed11-9f5e-0022489e2f99",
+			"name": "invoice_approvers",
+			"description": "INVOICE: Approvers Multi Step"
+		},
+		{
+			"id": "29f74f44-f466-eb11-988a-2818786fc240",
+			"name": "invoice_status",
+			"description": "INVOICE: Status"
+		},
+		{
+			"id": "21f2f950-6f6b-eb11-b566-2818786fd42d",
+			"name": "invoice_rules",
+			"description": "INVOICE: Rules"
+		}
+	],
+	"jsclass": [
+		{
+			"id": "fec5c35e-896b-eb11-b566-2818786fd42d",
+			"name": "ruleSave",
+			"description": null
+		},
+		{
+			"id": "facc0c70-3b12-ed11-bd6e-281878afc480",
+			"name": "invoiceMonitorWFusers",
+			"description": null
+		},
+		{
+			"id": "eec57692-648a-ed11-9f5e-0022489e2f99",
+			"name": "invoiceWorkflowPostProcessing2",
+			"description": null
+		},
+		{
+			"id": "e9747ac5-806b-eb11-b566-2818786fd42d",
+			"name": "invoiceList",
+			"description": null
+		},
+		{
+			"id": "dd5b252a-4a6d-eb11-b566-2818786fd42d",
+			"name": "invoiceWorkflowPost",
+			"description": null
+		},
+		{
+			"id": "c9f4f873-648a-ed11-9f5e-0022489e2f99",
+			"name": "invoiceWorkflowApprover3",
+			"description": null
+		},
+		{
+			"id": "c9827076-5780-ed11-9f5e-0022489e2f99",
+			"name": "testSubst",
+			"description": null
+		},
+		{
+			"id": "bdf32f9b-2c6d-eb11-b566-2818786fd42d",
+			"name": "invoiceWorkflowStart",
+			"description": null
+		},
+		{
+			"id": "b2dd7004-608a-ed11-9f5e-0022489e2f99",
+			"name": "invoiceWorkflowPostProcessing1",
+			"description": null
+		},
+		{
+			"id": "b1af2190-816b-eb11-b566-2818786fd42d",
+			"name": "invoiceSave",
+			"description": null
+		},
+		{
+			"id": "a21ed9a7-6b8a-ed11-9f5e-0022489e2f99",
+			"name": "invoiceWorkflowUtils",
+			"description": null
+		},
+		{
+			"id": "96657d30-726b-eb11-b566-2818786fd42d",
+			"name": "masterdata",
+			"description": null
+		},
+		{
+			"id": "8ccad164-536d-eb11-b566-2818786fd42d",
+			"name": "invoicePostAfterApproval",
+			"description": null
+		},
+		{
+			"id": "82a0ce13-c38d-ed11-9f5e-0022489e2f99",
+			"name": "invoiceAdaptiveMyCostCenter",
+			"description": null
+		},
+		{
+			"id": "81ec2e96-1aaa-ec11-a99b-2818783cf437",
+			"name": "testReqest",
+			"description": "test"
+		},
+		{
+			"id": "6599de8d-628a-ed11-9f5e-0022489e2f99",
+			"name": "invoiceWorkflowApprover1",
+			"description": null
+		},
+		{
+			"id": "6446aae1-076d-eb11-b566-2818786fd42d",
+			"name": "invoiceGet",
+			"description": null
+		},
+		{
+			"id": "60a6432b-648a-ed11-9f5e-0022489e2f99",
+			"name": "invoiceWorkflowApprover2",
+			"description": null
+		},
+		{
+			"id": "41231d77-fc6c-eb11-b566-2818786fd42d",
+			"name": "masterdataSync",
+			"description": null
+		},
+		{
+			"id": "26d5b79f-ad7f-ed11-9f5e-0022489e2f99",
+			"name": "invoiceWorkflowApprovers",
+			"description": null
+		},
+		{
+			"id": "201d6b35-ed6b-eb11-b566-2818786fd42d",
+			"name": "ruleDelete",
+			"description": " "
+		},
+		{
+			"id": "0dd4f3a1-4d6c-eb11-b566-2818786fd42d",
+			"name": "invoiceDelete",
+			"description": null
+		},
+		{
+			"id": "02a58aae-206d-eb11-b566-2818786fd42d",
+			"name": "ruleGet",
+			"description": null
+		},
+		{
+			"id": "028685e9-ab18-ed11-bd6e-281878afc480",
+			"name": "InvoiceWorkflowReminder",
+			"description": "Reminder"
+		}
+	],
+	"jsscript_group": [
+		{
+			"id": "b1a13a28-726b-eb11-b566-2818786fd42d",
+			"name": "Invoice",
+			"description": null
+		}
+	],
+	"theme": [],
+	"pdf": [],
+	"rulesengine": [],
+	"reports": [
+		{
+			"id": "fd30d4d2-c28d-ed11-9f5e-0022489e2f99",
+			"name": "invoice_monitor_workflow_managers",
+			"description": "",
+			"application": "planet9_adaptive_list"
+		},
+		{
+			"id": "e060cf9a-658a-ed11-9f5e-0022489e2f99",
+			"name": "invoice_approvers_list",
+			"description": "",
+			"application": "planet9_adaptive_list"
+		},
+		{
+			"id": "d3fa3531-c36e-eb11-b566-2818786fd42d",
+			"name": "invoice_approval_create",
+			"description": "",
+			"application": "planet9_adaptive_edit"
+		},
+		{
+			"id": "3e78ec4c-658a-ed11-9f5e-0022489e2f99",
+			"name": "invoice_approvers_detail",
+			"description": "",
+			"application": "planet9_adaptive_edit"
+		},
+		{
+			"id": "2fc6367e-c06e-eb11-b566-2818786fd42d",
+			"name": "invoice_approval_list",
+			"description": "",
+			"application": "planet9_adaptive_list"
+		},
+		{
+			"id": "1dbf91fc-476d-eb11-b566-2818786fd42d",
+			"name": "invoice_monitor_workflow",
+			"description": "",
+			"application": "planet9_adaptive_list"
+		},
+		{
+			"id": "0fd9eec2-fb6c-eb11-b566-2818786fd42d",
+			"name": "invoice_status_list",
+			"description": "",
+			"application": "planet9_adaptive_list"
+		}
+	],
+	"api_authentication": [],
+	"api_group": [],
+	"tile": [],
+	"category": [],
+	"launchpad": [],
+	"certificates": [],
+	"role": [],
+	"systems": [],
+	"doc": [],
+	"wf_notifications": [],
+	"department": [],
+	"script_scheduler": [],
+	"wf_definition": [
+		{
+			"id": "d0417c7d-7d87-ed11-9f5e-0022489e2f99",
+			"title": "Vendor Invoice",
+			"subTitle": "Invoice Approval "
+		}
+	],
+	"connector": [
+		{
+			"id": "f4aff5f2-506a-ed11-9f5e-0022489e2f99",
+			"name": "invoice_approval_user_detail",
+			"description": "Invoice Approval User Detail"
+		},
+		{
+			"id": "d7141cad-496a-ed11-9f5e-0022489e2f99",
+			"name": "invoice_approval_create",
+			"description": "Invoice Approval Create"
+		},
+		{
+			"id": "a5c79518-516a-ed11-9f5e-0022489e2f99",
+			"name": "invoice_masterdata_accounts",
+			"description": "Invoice Masterdata Accounts"
+		},
+		{
+			"id": "a405c4ee-2a12-ed11-bd6e-281878afc480",
+			"name": "invoice_monitor_workflow - auto-generated connector",
+			"description": " - auto-generated connector"
+		},
+		{
+			"id": "a32e6b02-4a6a-ed11-9f5e-0022489e2f99",
+			"name": "invoice_approval_list",
+			"description": "Invoice Approbal List"
+		},
+		{
+			"id": "a2e8fe93-526a-ed11-9f5e-0022489e2f99",
+			"name": "invoice_status_detail",
+			"description": "Invoice Status Detail"
+		},
+		{
+			"id": "89c16be2-516a-ed11-9f5e-0022489e2f99",
+			"name": "invoice_monitor_processing",
+			"description": "Invoice Monitor Processing"
+		},
+		{
+			"id": "86cba8bb-516a-ed11-9f5e-0022489e2f99",
+			"name": "invoice_masterdata_vendor",
+			"description": "Invoice Masterdata Vendor"
+		},
+		{
+			"id": "705b619a-4f6a-ed11-9f5e-0022489e2f99",
+			"name": "invoice_approval_detail_user_list",
+			"description": "Invoice Approval Detail User"
+		},
+		{
+			"id": "58ee9c8b-4b6a-ed11-9f5e-0022489e2f99",
+			"name": "invoice_approval_detail",
+			"description": "Invoice Approval Detail"
+		},
+		{
+			"id": "42a8a0fe-648a-ed11-9f5e-0022489e2f99",
+			"name": "invoice_approvers",
+			"description": "Invoice Approvers Multistep"
+		},
+		{
+			"id": "260247a3-516a-ed11-9f5e-0022489e2f99",
+			"name": "invoice_masterdata_costcenter",
+			"description": "Invoice Masterdata CostCenter"
+		},
+		{
+			"id": "15a37978-526a-ed11-9f5e-0022489e2f99",
+			"name": "invoice_rules",
+			"description": "Invoice Rules"
+		}
+	],
+	"events": [],
+	"media_library": []
+}

@@ -1,0 +1,272 @@
+{
+	"id": "2fc6367e-c06e-eb11-b566-2818786fd42d",
+	"createdAt": "2021-02-14T12:31:00.540Z",
+	"createdBy": "ole-andre.haugen@neptune-software.com",
+	"settings": {
+		"properties": {
+			"report": {
+				"showIcon": true,
+				"iconButtonClose": "",
+				"textButtonClose": "Close",
+				"typeButtonClose": "Transparent",
+				"iconButtonCreate": "",
+				"textButtonCreate": "Create",
+				"typeButtonCreate": "Emphasized",
+				"iconButtonExport": "sap-icon://excel-attachment",
+				"textButtonExport": "",
+				"typeButtonExport": "Transparent",
+				"iconButtonMultiSelect": "",
+				"textButtonMultiSelect": "MultiSelect",
+				"typeButtonMultiSelect": "Emphasized",
+				"iconButtonRun": "",
+				"textButtonRun": "Update",
+				"typeButtonRun": "Emphasized",
+				"enableRun": true,
+				"enableCreate": true,
+				"enableDelete": true,
+				"enableExport": false,
+				"enableMultiSelect": false,
+				"enableVariant": false,
+				"hideHeader": false,
+				"autoRun": true,
+				"autoRunFocus": true,
+				"title": "Approval",
+				"subTitle": "List",
+				"_navigationCreate": {
+					"destinationType": "F",
+					"openAs": "D",
+					"butType": "Accept",
+					"destinationTargetF": "D3FA3531-C36E-EB11-B566-2818786FD42D",
+					"keyField": [],
+					"dialogHeight": "800px"
+				},
+				"_navigationItemPress": {
+					"destinationType": "F",
+					"openAs": "P",
+					"butType": "Accept",
+					"destinationTargetF": "58D73E05-C06E-EB11-B566-2818786FD42D",
+					"keyField": [],
+					"dialogHeight": "800px"
+				},
+				"enableClose": false,
+				"searchLabel": "Search",
+				"searchPlaceholder": "",
+				"actionButtonLeft": false,
+				"iconButtonImport": "sap-icon://fa-solid/file-import",
+				"textButtonImport": "",
+				"typeButtonImport": "Transparent",
+				"enableImport": false
+			},
+			"form": {
+				"enableCompact": false,
+				"headerExpanded": true
+			},
+			"table": {
+				"enablePagination": false,
+				"paginationRows": 25,
+				"alternateRowColors": false,
+				"enableCompact": false,
+				"fixedLayout": false,
+				"inset": false,
+				"action1Text": "",
+				"action1Type": "Transparent",
+				"action2Text": "Action 2",
+				"action2Type": "Transparent",
+				"action3Text": "Action 3",
+				"action3Type": "Transparent",
+				"enableAction1": false,
+				"enableAction2": false,
+				"enableAction3": false,
+				"paginationShowSelection": false,
+				"showSeparators": "All"
+			}
+		},
+		"fieldCatalog": [
+			{
+				"name": "AMOUNT_FROM",
+				"label": "Amount From",
+				"type": "bigint"
+			},
+			{
+				"name": "AMOUNT_TO",
+				"label": "Amount To",
+				"type": "bigint"
+			},
+			{
+				"name": "KOSTL",
+				"label": "Cost Center",
+				"type": "text"
+			},
+			{
+				"name": "NAME",
+				"label": "Name",
+				"type": "text"
+			},
+			{
+				"name": "createdAt",
+				"label": "Created At",
+				"type": "timestamp"
+			},
+			{
+				"name": "createdBy",
+				"label": "Created By",
+				"type": "text"
+			},
+			{
+				"name": "updatedAt",
+				"label": "Updated At",
+				"type": "timestamp"
+			},
+			{
+				"name": "updatedBy",
+				"label": "Updated By",
+				"type": "text"
+			}
+		],
+		"fieldsSel": [
+			{
+				"text": "Cost Center",
+				"type": "MultiSelectLookup",
+				"lookupTable": "invoice_cskt",
+				"lookupFieldKey": "KOSTL",
+				"lookupFieldText": "KTEXT",
+				"lookupShowOnlyText": false,
+				"required": false,
+				"visible": true,
+				"name": "KOSTL",
+				"fieldPos": 1
+			}
+		],
+		"fieldsRun": [
+			{
+				"text": "Name",
+				"wrapping": false,
+				"enableGroup": false,
+				"enableFilter": true,
+				"enableSort": true,
+				"enableSum": false,
+				"visible": true,
+				"name": "NAME",
+				"fieldPos": 2
+			},
+			{
+				"text": "Cost Center",
+				"wrapping": false,
+				"enableGroup": false,
+				"enableFilter": true,
+				"enableSort": true,
+				"enableSum": false,
+				"visible": true,
+				"name": "KOSTL",
+				"fieldPos": 3,
+				"_lookup": {
+					"table": "invoice_cskt",
+					"textField": "KTEXT",
+					"keyField": [
+						{
+							"fieldName": "KOSTL",
+							"key": "KOSTL",
+							"value": ""
+						}
+					],
+					"hideKey": false,
+					"butType": "Accept"
+				},
+				"formatter": "zero",
+				"valueType": "Lookup",
+				"valueLookup": {
+					"table": "invoice_cskt",
+					"textField": "KTEXT",
+					"keyField": [
+						{
+							"fieldName": "KOSTL",
+							"key": "KOSTL",
+							"value": ""
+						}
+					],
+					"hideKey": false,
+					"butType": "Accept"
+				}
+			},
+			{
+				"text": "Amount From",
+				"formatter": "number01",
+				"wrapping": false,
+				"enableGroup": false,
+				"enableFilter": false,
+				"enableSort": true,
+				"enableSum": false,
+				"visible": true,
+				"name": "AMOUNT_FROM",
+				"fieldPos": 4,
+				"hAlign": ""
+			},
+			{
+				"text": "Amount To",
+				"formatter": "number01",
+				"wrapping": false,
+				"enableGroup": false,
+				"enableFilter": false,
+				"enableSort": true,
+				"enableSum": false,
+				"visible": true,
+				"name": "AMOUNT_TO",
+				"fieldPos": 5
+			},
+			{
+				"text": "Updated At",
+				"formatter": "date00",
+				"wrapping": false,
+				"enableGroup": false,
+				"enableFilter": false,
+				"enableSort": true,
+				"enableSum": false,
+				"visible": true,
+				"name": "updatedAt",
+				"fieldPos": 6
+			},
+			{
+				"text": "Updated By",
+				"wrapping": false,
+				"enableGroup": false,
+				"enableFilter": true,
+				"enableSort": true,
+				"enableSum": false,
+				"visible": true,
+				"name": "updatedBy",
+				"fieldPos": 7
+			}
+		],
+		"defaultVariant": {
+			"id": "875ceeaf-12fe-42fa-b102-efbadb6446ef",
+			"colOrder": "key_a_to_z",
+			"rowOrder": "key_a_to_z",
+			"row": [],
+			"column": [],
+			"val": [],
+			"inclusions": {},
+			"exclusions": {}
+		}
+	},
+	"name": "invoice_approval_list",
+	"description": "",
+	"group": "",
+	"type": "C",
+	"connectorid": "a32e6b02-4a6a-ed11-9f5e-0022489e2f99",
+	"scriptSel": null,
+	"scriptRun": null,
+	"tableid": "8df410cb-bf6e-eb11-b566-2818786fd42d",
+	"ver": "22.11.22.945",
+	"disabled": false,
+	"appType": "A",
+	"application": "planet9_adaptive_list",
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784",
+	"roles": [],
+	"scriptSelObj": null,
+	"scriptRunObj": null,
+	"tableObj": {
+		"id": "8df410cb-bf6e-eb11-b566-2818786fd42d",
+		"name": "invoice_approval",
+		"ver": "21.2.14.1335"
+	}
+}

@@ -1,0 +1,23 @@
+for (let i in req.body) {
+
+    const WA_INVOICE = req.body[i];
+
+    // Duplicate Check 
+    const INVOICE = await entities.invoice_header.find({ where: { XBLNR: WA_INVOICE.XBLNR, LIFNR: WA_INVOICE.LIFNR } });
+    // Changed to include LIFNR and not only XBLNR. Since some invoices from different vendors had the same XBLNR
+    // Jon Arne Skaarud 11.10.2022
+    
+
+    if (INVOICE.length > 1) WA_INVOICE.STATUS = 94;
+    if (INVOICE.length === 1 && !WA_INVOICE.id) WA_INVOICE.STATUS = 94;
+
+    await entities.invoice_header.save(WA_INVOICE);
+}
+
+result.data = {
+    status: "OK",
+    message: "Saved"
+}
+complete();
+
+

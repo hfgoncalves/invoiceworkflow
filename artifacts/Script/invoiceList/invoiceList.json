@@ -1,0 +1,26 @@
+{
+	"id": "e9747ac5-806b-eb11-b566-2818786fd42d",
+	"createdAt": "2021-02-10T09:17:18.796Z",
+	"createdBy": "ole-andre.haugen@neptune-software.com",
+	"globalScripts": [],
+	"externalModules": [],
+	"entitySets": [
+		{
+			"id": "5A669A1E-F466-EB11-988A-2818786FC240",
+			"name": "invoice_header",
+			"contextname": "invoice_header"
+		}
+	],
+	"apis": [],
+	"name": "invoiceList",
+	"ver": "21.2.11.956",
+	"description": null,
+	"content": "file:///content.script",
+	"useAsGlobalScript": false,
+	"transpiledContent": null,
+	"lastRunSuccessful": false,
+	"isTypescript": false,
+	"language": "javascript",
+	"jsscriptGroup": "b1a13a28-726b-eb11-b566-2818786fd42d",
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784"
+}

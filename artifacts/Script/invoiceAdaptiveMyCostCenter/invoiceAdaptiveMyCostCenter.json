@@ -1,0 +1,26 @@
+{
+	"id": "82a0ce13-c38d-ed11-9f5e-0022489e2f99",
+	"createdAt": "2023-01-06T13:07:31.873Z",
+	"createdBy": "ole-andre.haugen@neptune-software.com",
+	"globalScripts": [],
+	"externalModules": [],
+	"entitySets": [
+		{
+			"id": "367B4474-628A-ED11-9F5E-0022489E2F99",
+			"name": "invoice_approvers",
+			"contextname": "invoice_approvers"
+		}
+	],
+	"apis": [],
+	"name": "invoiceAdaptiveMyCostCenter",
+	"ver": "23.1.11.939",
+	"description": null,
+	"content": "file:///content.script",
+	"useAsGlobalScript": false,
+	"transpiledContent": null,
+	"lastRunSuccessful": true,
+	"isTypescript": false,
+	"language": "javascript",
+	"jsscriptGroup": "b1a13a28-726b-eb11-b566-2818786fd42d",
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784"
+}

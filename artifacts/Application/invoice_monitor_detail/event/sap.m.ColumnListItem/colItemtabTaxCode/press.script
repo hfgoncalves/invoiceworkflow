@@ -1,0 +1,13 @@
+var context = oEvent.oSource.getBindingContext(); 
+var data = context.getObject();
+
+if (oApp.getCurrentPage() === oPageTraining) {
+    modelRule.oData.MWSKZ = data.MWSKZ;
+    modelRule.refresh();
+} else {
+    modelAppData.oData.invoice.MWSKZ = data.MWSKZ;
+    modelAppData.refresh();
+}
+
+diaTaxCode.close();
+

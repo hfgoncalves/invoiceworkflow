@@ -1,0 +1,3 @@
+modelRule.oData.id = xhr.responseJSON.id;
+apimasterdata();
+sap.m.MessageToast.show("Saved");

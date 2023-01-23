@@ -1,0 +1,17 @@
+{
+	"id": "f4aff5f2-506a-ed11-9f5e-0022489e2f99",
+	"createdAt": "2022-11-22T10:32:23.443Z",
+	"createdBy": "jon.arne.skaarud@neptune-software.com",
+	"settings": {
+		"tableid": "70c793ee-bf6e-eb11-b566-2818786fd42d",
+		"hasDocumentation": false
+	},
+	"documentation": [],
+	"name": "invoice_approval_user_detail",
+	"description": "Invoice Approval User Detail",
+	"group": null,
+	"type": "T",
+	"ver": "22.11.22.1032",
+	"disabled": false,
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784"
+}

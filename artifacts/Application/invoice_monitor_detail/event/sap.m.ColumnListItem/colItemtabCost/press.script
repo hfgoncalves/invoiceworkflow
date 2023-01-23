@@ -1,0 +1,12 @@
+var context = oEvent.oSource.getBindingContext("MasterData");
+var data = context.getObject();
+
+if (oApp.getCurrentPage() === oPageTraining) {
+    modelRule.oData.KOSTL = data.KOSTL;
+    modelRule.refresh();
+} else {
+    modelAppData.oData.invoice.KOSTL = data.KOSTL;
+    modelAppData.refresh();
+}
+
+diaCost.close();

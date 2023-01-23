@@ -1,0 +1,2 @@
+var rule = await entities.invoice_rules.delete(req.body.id);
+complete();

@@ -1,0 +1,12 @@
+
+
+if (oApp.getCurrentPage() === oPageTraining) {
+    modelRule.oData.MWSKZ = '';
+    modelRule.refresh();
+} else {
+    modelAppData.oData.invoice.MWSKZ = '';
+    modelAppData.refresh();
+}
+
+diaTaxCode.close();
+

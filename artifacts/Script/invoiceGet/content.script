@@ -1,0 +1,15 @@
+const invoice = await entities.invoice_header.findOne(req.query.id);
+
+const rules = await entities.invoice_rules.find({
+    select: ["id", "name", "rules", "str", "vendorid", "BUKRS", "HKONT", "KOSTL","XMWST","MWSKZ","AUTOPOST"],
+    order: { name: "ASC" }
+});
+
+rules.unshift({ id: "", name: "" });
+
+result.data = {
+    invoice: invoice,
+    rules: rules
+}
+
+complete();

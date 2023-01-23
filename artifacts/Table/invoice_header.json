@@ -1,0 +1,209 @@
+{
+	"id": "5a669a1e-f466-eb11-988a-2818786fc240",
+	"createdAt": "2021-02-04T14:20:25.436Z",
+	"createdBy": "ole-andre.haugen@neptune-software.com",
+	"fields": [
+		{
+			"id": "7195ec5f-ca56-4164-fdc0-1665cd7285db",
+			"fieldName": "BUKRS",
+			"fieldType": "text",
+			"description": "Company Code",
+			"isNullable": true
+		},
+		{
+			"id": "b2a96ea9-30f1-4d93-935a-5ac0a926d64c",
+			"fieldName": "WAERS",
+			"fieldType": "text",
+			"description": "Currency",
+			"isNullable": true
+		},
+		{
+			"id": "ddab2b8a-f404-4090-9056-9b9f7168ba4d",
+			"fieldName": "LIFNR",
+			"fieldType": "text",
+			"description": "Vendor",
+			"isNullable": true
+		},
+		{
+			"id": "5d473308-aac0-473a-91e5-d03fc27cada3",
+			"fieldName": "HKONT",
+			"fieldType": "text",
+			"description": "Account",
+			"isNullable": true
+		},
+		{
+			"id": "748cb792-9e57-4143-e941-323aa80a9c50",
+			"fieldName": "WRBTR",
+			"fieldType": "text",
+			"description": "Value",
+			"isNullable": true
+		},
+		{
+			"id": "2a90aeb4-fd00-4487-81dd-22b42dd965f5",
+			"fieldName": "ZFBDT",
+			"fieldType": "timestamptz",
+			"description": "Baseline Date",
+			"isNullable": true
+		},
+		{
+			"id": "87bd8e18-9daf-4b87-b8c4-6c8bd1f3e847",
+			"fieldName": "KIDNO",
+			"fieldType": "text",
+			"description": "Payment Reference",
+			"isNullable": true
+		},
+		{
+			"id": "42d0c1f4-b3e9-41e4-c68c-d993b2059535",
+			"fieldName": "XBLNR",
+			"fieldType": "text",
+			"description": "Document Reference",
+			"isNullable": true
+		},
+		{
+			"id": "6e89b3c7-ab1d-4fbc-faa7-fbe15707282a",
+			"fieldName": "SGTXT",
+			"fieldType": "text",
+			"description": "Text",
+			"isNullable": true
+		},
+		{
+			"id": "3b76796a-5ae7-4cbd-a6c7-dbd25b890ce5",
+			"fieldName": "STATUS",
+			"fieldType": "integer",
+			"description": "Status",
+			"isNullable": true
+		},
+		{
+			"id": "c7a4d36f-b0fd-405f-e595-bd9a9d7feab1",
+			"fieldName": "ATT_NAME",
+			"fieldType": "text",
+			"isNullable": true,
+			"description": "Attachment Name"
+		},
+		{
+			"id": "5608065b-2b76-487a-c2e7-ba6dd2834dc5",
+			"fieldName": "ATT_SIZE",
+			"fieldType": "text",
+			"isNullable": true,
+			"description": "Attachment Size"
+		},
+		{
+			"id": "e39d803c-bc24-4e50-f9cc-66cdfbcb6047",
+			"fieldName": "ATT_TYPE",
+			"fieldType": "text",
+			"description": "Attachment Type",
+			"isNullable": true
+		},
+		{
+			"id": "03468498-14b5-4135-e39b-56ba07080f29",
+			"fieldName": "ATT_CONTENT",
+			"fieldType": "text",
+			"isNullable": true,
+			"description": "Attachment Content"
+		},
+		{
+			"id": "eda329c4-f386-4789-d78a-2ed07d3349e9",
+			"fieldName": "RULEID",
+			"fieldType": "text",
+			"description": "Rule ID",
+			"isNullable": true
+		},
+		{
+			"id": "1aef94da-0725-421b-ea2c-44c469483eae",
+			"fieldName": "BLDAT",
+			"fieldType": "text",
+			"description": "Incvoice Date",
+			"isNullable": true
+		},
+		{
+			"id": "f8440493-09eb-4981-d8bf-7d797d9dc24b",
+			"fieldName": "KOSTL",
+			"fieldType": "text",
+			"description": "Cost Center",
+			"isNullable": true
+		},
+		{
+			"id": "3021a05e-56cd-45a2-b280-2a1ea01076f3",
+			"fieldName": "SAP_STATUS",
+			"fieldType": "text",
+			"isNullable": true
+		},
+		{
+			"id": "dad2f313-bbef-4f37-aec8-bc2fbe6f972f",
+			"fieldName": "SAP_MESSAGE",
+			"fieldType": "text",
+			"isNullable": true
+		},
+		{
+			"id": "76fa74ea-82c7-4ab4-e256-179ed346b66b",
+			"fieldName": "SAP_BELNR",
+			"fieldType": "text",
+			"isNullable": true
+		},
+		{
+			"id": "962de59a-db17-402c-f1f5-76f6172b3a43",
+			"fieldName": "SAP_GJAHR",
+			"fieldType": "text",
+			"isNullable": true
+		},
+		{
+			"id": "dc6fca2d-0842-4e42-c613-052a19062c8c",
+			"fieldName": "WFID",
+			"fieldType": "text",
+			"isNullable": true,
+			"description": "Workflow ID"
+		},
+		{
+			"id": "3da35a22-3302-4774-a84a-9afd4a8af341",
+			"fieldName": "XMWST",
+			"fieldType": "boolean",
+			"description": "Calculate Tax",
+			"isNullable": true
+		},
+		{
+			"id": "f4cc3305-db72-4fd4-c954-eedb93a8cbb1",
+			"fieldName": "BUDAT",
+			"fieldType": "text",
+			"description": "Posting Date",
+			"isNullable": true
+		},
+		{
+			"id": "37df6993-95d4-4b53-fc4a-5f4efa3c7bdc",
+			"fieldName": "MWSKZ",
+			"fieldType": "text",
+			"description": "Tax Code",
+			"isNullable": true
+		},
+		{
+			"id": "55067a5a-120e-4311-afcb-dd5095ad205a",
+			"fieldName": "AUTOPOST",
+			"fieldType": "boolean",
+			"description": "Automatic Posting in SAP",
+			"isNullable": true
+		},
+		{
+			"id": "874ceefa-87b1-4421-d3cf-9d1f3e591805",
+			"fieldName": "FAEDT",
+			"fieldType": "text",
+			"description": "Due Date",
+			"isNullable": true
+		},
+		{
+			"id": "d90efb41-c6d0-4be4-def7-5effc031f6bb",
+			"fieldName": "APPROVERS_EMAIL",
+			"fieldType": "text",
+			"description": "The Approvers Email",
+			"isNullable": true
+		}
+	],
+	"indices": [],
+	"foreignKeys": [],
+	"name": "invoice_header",
+	"description": "INVOICE: Header",
+	"ver": "22.8.11.1046",
+	"enableAudit": false,
+	"includeDataInPackage": false,
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784",
+	"rolesRead": [],
+	"rolesWrite": []
+}

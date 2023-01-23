@@ -1,0 +1,45 @@
+// Upload -> Prevent
+if (oApp.getCurrentPage() === oPageUpload) return;
+
+// Check Rule
+var rule = ModelData.FindFirst(modelAppData.oData.rules, "id", modelAppData.oData.invoice.RULEID);
+
+if (!rule) modelAppData.oData.invoice.RULEID = "";
+
+if (modelAppData.oData.invoice.RULEID || modelAppData.oData.invoice.STATUS === 90 || modelAppData.oData.invoice.STATUS === 93 
+|| modelAppData.oData.invoice.STATUS === 91 || modelAppData.oData.invoice.STATUS === 92 || modelAppData.oData.invoice.STATUS === 94
+|| modelAppData.oData.invoice.STATUS === 22 || modelAppData.oData.invoice.STATUS === 30) {
+
+
+    switch (modelAppData.oData.invoice.STATUS) {
+        
+        case 22:
+        case 30:
+        case 94:
+            modelAppControl.oData.enableEdit = false;
+            break;
+
+        default:
+            modelAppControl.oData.enableEdit = true;
+            break;
+
+    }
+
+    modelAppControl.refresh();
+
+    // Show Invoice Details
+    $("#" + viewidDetail).attr("src", modelAppData.oData.invoice.ATT_CONTENT);
+    oApp.to(oPageInvoice);
+
+} else {
+
+    // New
+    if (modelAppData.oData.invoice.STATUS === 1 || modelAppData.oData.invoice.STATUS === 2) {
+        parser.getText(modelAppData.oData.invoice.ATT_CONTENT, modelAppData.oData.invoice, { findRule: true });
+    } else {
+        parser.createRule(modelAppData.oData.invoice)
+    }
+
+}
+
+oApp.setBusy(false);

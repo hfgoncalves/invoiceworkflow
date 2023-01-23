@@ -1,0 +1,17 @@
+{
+	"id": "260247a3-516a-ed11-9f5e-0022489e2f99",
+	"createdAt": "2022-11-22T10:37:19.253Z",
+	"createdBy": "jon.arne.skaarud@neptune-software.com",
+	"settings": {
+		"tableid": "4ede3bc5-fa6c-eb11-b566-2818786fd42d",
+		"hasDocumentation": false
+	},
+	"documentation": [],
+	"name": "invoice_masterdata_costcenter",
+	"description": "Invoice Masterdata CostCenter",
+	"group": null,
+	"type": "T",
+	"ver": "22.11.22.1037",
+	"disabled": false,
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784"
+}

@@ -1,0 +1,31 @@
+{
+	"id": "29f74f44-f466-eb11-988a-2818786fc240",
+	"createdAt": "2021-02-04T14:21:29.090Z",
+	"createdBy": "ole-andre.haugen@neptune-software.com",
+	"fields": [
+		{
+			"id": "cf96d685-4d67-4b85-c4da-bdf26dbce96c",
+			"fieldName": "status",
+			"fieldType": "integer",
+			"description": "Status",
+			"isNullable": true
+		},
+		{
+			"id": "e59f9a64-8e51-4375-f6ae-86feb8b14343",
+			"fieldName": "text",
+			"fieldType": "text",
+			"description": "Text",
+			"isNullable": true
+		}
+	],
+	"indices": [],
+	"foreignKeys": [],
+	"name": "invoice_status",
+	"description": "INVOICE: Status",
+	"ver": "23.1.2.625",
+	"enableAudit": false,
+	"includeDataInPackage": false,
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784",
+	"rolesRead": [],
+	"rolesWrite": []
+}

@@ -1,0 +1,6 @@
+if (oApp.getParent() && oApp.getParent().getParent() && oApp.getParent().getParent().close) {
+    oApp.getParent().getParent().close();
+} else {
+    if (config.events.afterChildSave) config.events.afterChildSave();
+    if (config.events.onChildBack) config.events.onChildBack();
+}

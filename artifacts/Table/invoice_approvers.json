@@ -1,0 +1,47 @@
+{
+	"id": "367b4474-628a-ed11-9f5e-0022489e2f99",
+	"createdAt": "2023-01-02T05:58:19.973Z",
+	"createdBy": "ole-andre.haugen@neptune-software.com",
+	"fields": [
+		{
+			"id": "d6dbc39b-d99e-4c21-9e80-ad37f4d8e698",
+			"fieldName": "KOSTL",
+			"fieldType": "text",
+			"description": "Cost Center"
+		},
+		{
+			"id": "3aeea973-3d9d-4708-c037-a528027c429d",
+			"fieldName": "approver1",
+			"fieldType": "text",
+			"isUnique": false,
+			"description": "Approver 1",
+			"isNullable": true
+		},
+		{
+			"id": "bc3efa8a-218b-4f25-b121-7a116b681780",
+			"fieldName": "approver2",
+			"fieldType": "text",
+			"isUnique": false,
+			"description": "Approver 2",
+			"isNullable": true
+		},
+		{
+			"id": "6960a7b7-90d5-412e-d87d-4c0c2e8401ff",
+			"fieldName": "approver3",
+			"fieldType": "text",
+			"isUnique": false,
+			"description": "Approver 3",
+			"isNullable": true
+		}
+	],
+	"indices": [],
+	"foreignKeys": [],
+	"name": "invoice_approvers",
+	"description": "INVOICE: Approvers Multi Step",
+	"ver": "23.1.2.658",
+	"enableAudit": false,
+	"includeDataInPackage": false,
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784",
+	"rolesRead": [],
+	"rolesWrite": []
+}

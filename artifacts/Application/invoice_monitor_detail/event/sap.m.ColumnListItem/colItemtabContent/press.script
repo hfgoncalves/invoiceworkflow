@@ -1,0 +1,13 @@
+var context = oEvent.oSource.getBindingContext("Rule");
+var data = context.getObject();
+
+modelRule.oData.rules.push({
+    id: ModelData.genID(),
+    type: "",
+    str: data.str,
+    placement: "",
+    operation: "",
+    value: ""
+})
+
+modelRule.refresh();

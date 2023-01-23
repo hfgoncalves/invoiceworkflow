@@ -1,0 +1,58 @@
+await entities.invoice_cskt.delete({});
+await entities.invoice_skat.delete({});
+await entities.invoice_lfa1.delete({});
+
+await entities.invoice_t005.delete({});
+await entities.invoice_tax_codes.delete({});
+
+
+try {
+    const request = await apis.masterdata();
+
+    await savebatch("invoice_lfa1", request.data.result.IT_LFA1, 50);
+    await savebatch("invoice_skat", request.data.result.IT_SKAT, 50);
+    await savebatch("invoice_cskt", request.data.result.IT_CSKT, 50);
+
+    await savebatch("invoice_t005", request.data.result.IT_T005, 50);
+    await savebatch("invoice_tax_codes", request.data.result.IT_TAX_CODES, 50);
+    
+
+    result.data = {
+        status: "OK",
+        text: "Master Data Updated"
+    }
+
+    return complete();
+
+} catch (error) {
+
+    result.data = {
+        status: "ERROR",
+        text: "Master Data Not Updated"
+    }
+    log.info("ERROR");
+    return complete();
+}
+
+
+async function savebatch(tableName, tableData, split) {
+
+    var dataSave = [];
+    var numCurrent = 0;
+
+    for (let i in tableData) {
+
+        if (split === numCurrent) {
+            await entities[tableName].insert(dataSave);
+            dataSave = [];
+            numCurrent = 0;
+        }
+
+        dataSave.push(tableData[i]);
+        numCurrent++;
+
+    };
+
+    if (dataSave.length) await entities[tableName].insert(dataSave);
+
+}

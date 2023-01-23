@@ -1,0 +1,101 @@
+{
+	"id": "21f2f950-6f6b-eb11-b566-2818786fd42d",
+	"createdAt": "2021-02-10T07:12:22.356Z",
+	"createdBy": "ole-andre.haugen@neptune-software.com",
+	"fields": [
+		{
+			"id": "3909be3c-7e8e-478f-be25-340ff4a5d97f",
+			"fieldName": "name",
+			"fieldType": "text",
+			"description": "Name"
+		},
+		{
+			"id": "a664b01c-34e6-4ec8-fd9e-5c7df7a1bc18",
+			"fieldName": "description",
+			"fieldType": "text",
+			"description": "Description",
+			"isNullable": true
+		},
+		{
+			"id": "54d18252-897b-4036-a775-ba4bc0951228",
+			"fieldName": "example",
+			"fieldType": "text",
+			"description": "Example PDF",
+			"isNullable": true
+		},
+		{
+			"id": "57233a6b-f89f-4769-f354-3de2a6465280",
+			"fieldName": "vendorid",
+			"fieldType": "text",
+			"description": "Vendor ID in SAP",
+			"isNullable": true
+		},
+		{
+			"id": "a168ab38-ac95-43e9-85a1-9eda50e1c863",
+			"fieldName": "rules",
+			"fieldType": "json",
+			"description": "Rules",
+			"isNullable": true,
+			"default": ""
+		},
+		{
+			"id": "11ef1537-cdf2-405a-a00f-938439529634",
+			"fieldName": "str",
+			"fieldType": "text",
+			"description": "Pattern Search for This Rule",
+			"isNullable": true
+		},
+		{
+			"id": "f442f154-1f2a-4e66-93ae-c65b845c43b3",
+			"fieldName": "BUKRS",
+			"fieldType": "text",
+			"description": "Company Code",
+			"isNullable": true
+		},
+		{
+			"id": "0bb0848e-672c-445f-8cf4-c1492cd467f4",
+			"fieldName": "HKONT",
+			"fieldType": "text",
+			"description": "Account",
+			"isNullable": true
+		},
+		{
+			"id": "e1196f29-4c97-42f5-b4b5-3212fbeceef9",
+			"fieldName": "KOSTL",
+			"fieldType": "text",
+			"isNullable": true,
+			"description": "Cost Center"
+		},
+		{
+			"id": "5a659633-0afc-430e-a0c2-a1d9753a1808",
+			"fieldName": "XMWST",
+			"fieldType": "boolean",
+			"description": "Calculate Tax",
+			"isNullable": true
+		},
+		{
+			"id": "8ea4d036-edae-451c-e1f2-e6c844fa4801",
+			"fieldName": "MWSKZ",
+			"fieldType": "text",
+			"description": "Tax Code",
+			"isNullable": true
+		},
+		{
+			"id": "6745c26d-30a3-4970-a892-2614d0253255",
+			"fieldName": "AUTOPOST",
+			"fieldType": "boolean",
+			"description": "Direct posting in SAP",
+			"isNullable": true
+		}
+	],
+	"indices": [],
+	"foreignKeys": [],
+	"name": "invoice_rules",
+	"description": "INVOICE: Rules",
+	"ver": "22.1.20.859",
+	"enableAudit": false,
+	"includeDataInPackage": false,
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784",
+	"rolesRead": [],
+	"rolesWrite": []
+}

@@ -1,0 +1,6 @@
+var deleteItem = oEvent.getParameter("listItem");
+var context = deleteItem.getBindingContext("Rule");
+var data = context.getObject();
+
+ModelData.Delete(modelRule.oData.rules, "id", data.id);
+modelRule.refresh();

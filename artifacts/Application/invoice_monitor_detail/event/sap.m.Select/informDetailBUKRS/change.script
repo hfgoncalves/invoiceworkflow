@@ -1,0 +1,5 @@
+//If Company Code is changed, the tax code has to be cleared:
+modelAppData.oData.invoice.MWSKZ = '';
+modelAppData.refresh();
+
+

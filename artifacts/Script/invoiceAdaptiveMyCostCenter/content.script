@@ -1,0 +1,22 @@
+let myCostCenter;
+
+const costCenter = await entities.invoice_approvers.find({
+    where: [
+        { approver1: req.user.username },
+        { approver2: req.user.username },
+        { approver2: req.user.username }
+    ],
+    select: ["KOSTL"]
+}
+);
+
+if (costCenter) {
+    myCostCenter = costCenter.map(function (costCenter) {
+        return costCenter.KOSTL;
+    });
+} else {
+    myCostCenter = ["9999"];
+}
+
+result.data = myCostCenter;
+complete();

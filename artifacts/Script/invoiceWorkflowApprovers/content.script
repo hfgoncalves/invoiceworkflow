@@ -1,0 +1,146 @@
+
+
+const {
+    In,
+    LessThan,
+    MoreThan,
+} = operators;
+
+
+let invoice = await entities.invoice_header.findOne(wfData.objectType);
+
+
+try {
+
+    // Find Approvers 
+    let approvalsid = [];
+    let approverString = '';
+
+    let approvals = await entities.invoice_approval.find({ KOSTL: invoice.KOSTL });
+
+    for (let i in approvals) {
+        const approval = approvals[i];
+        let amount = invoice.WRBTR;
+
+        if (invoice.WAERS === "NOK" || invoice.WAERS === "SEK") {
+            amount = amount / 10;
+        }
+
+        if (parseFloat(amount) >= parseFloat(approval.AMOUNT_FROM) && parseFloat(amount) <= parseFloat(approval.AMOUNT_TO)) {
+            approvalsid.push(approval.id);
+        }
+    }
+
+    let wfApprovers = "";
+    let wfSep = "";
+    let wfApp = [];
+
+    if (approvalsid.length) {
+
+        const users = await entities.invoice_approval_users.find({ APPROVALID: In(approvalsid) });
+
+        const lfa1 = await entities.invoice_lfa1.findOne({ "LIFNR": invoice.LIFNR });
+
+        let vendName1 = lfa1.NAME1;
+
+        for (let iUsers in users) {
+
+            wfApprovers = wfApprovers + wfSep + users[iUsers].USER;
+            wfSep = ",";
+
+            let apprName = "";
+
+            wfApp.push(users[iUsers].USER);
+
+
+            //Send e-mail to approvers - users[iUsers].USER - 
+            //Subject overstyres fra Template
+            //TEMP DISABLE
+           // await sendEmail(users[iUsers].USER, "Sub", null, "oah@neptune-software.com", "7B3C809B-1D92-EB11-85AA-2818786F9D68", { invfrom: vendName1, name: apprName });
+
+        }
+    }
+
+    // Default Approver if None is detected
+    if (!wfApprovers) {
+
+        // New Status
+        invoice.STATUS = 93;
+        await entities.invoice_header.save(invoice);
+
+        result.data = {
+            status: "E",
+            text: "No Approver Found"
+        }
+
+        complete();
+
+    } else {
+        let a = await getSubst(wfApp);
+
+        wfData.approvers = [...new Set(a)];
+        //log.info(wfData.approvers);
+        // wfData.approvers = test2;
+
+        // New Status - approvers update
+        invoice.STATUS = 92;
+        //invoice.WFID = wf.id;
+        //invoice.SAP_MESSAGE = 'Workflow Started'; 
+
+       //invoice.APPROVERS_EMAIL = approverString; //MK
+        await entities.invoice_header.save(invoice);
+
+        complete();
+
+    }
+
+} catch (error) {
+
+    log.error("Invoice Monitor: Workflow Approvers Error :" + error);
+
+    result.data = {
+        status: "E",
+        text: "Error finding approvers!"
+    }
+
+    complete();
+
+}
+
+
+//Subst;
+async function getSubst(approvers) {
+  
+    const manager = modules.typeorm.getConnection().manager;
+    let subst = [];
+
+    for (let i = 0; i < approvers.length; i++) {
+
+        //Original approver should stil get the item:
+        const approver = approvers[i];
+
+        subst.push(approver);
+      
+        const substitute = await manager.find('wf_substitution', {
+            select: ["substitute"],
+            where: {
+                username: approver,
+                active: true,
+                from: LessThan(new Date()),
+                to: MoreThan(new Date()),
+            }
+        });
+
+        
+        if (substitute) {
+            for (let i = 0; i < substitute.length; i++) {
+                subst.push(substitute[i].substitute);  
+
+            }
+        }
+
+    }
+    return subst;
+
+}
+

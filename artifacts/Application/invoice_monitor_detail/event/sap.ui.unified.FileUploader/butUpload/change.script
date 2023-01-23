@@ -1,0 +1,43 @@
+var files = oEvent.getParameter("files");
+var numFiles = files.length;
+var currFile = 1;
+var invoices = [];
+
+try {
+
+    $.each(files, function (i, file) {
+
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+
+            var rec = {
+                ATT_NAME: file.name,
+                ATT_SIZE: file.size,
+                ATT_TYPE: file.type,
+                ATT_CONTENT: reader.result,
+                STATUS: 1,
+            }
+
+            ModelData.Add(tabFiles, rec);
+
+            // Save Files
+            if (currFile === numFiles) parser.parseFiles();
+
+            currFile++;
+
+        };
+
+        reader.onerror = function (e) {
+            currFile++;
+            console.error(e);
+        };
+
+        reader.readAsDataURL(file);
+
+    });
+
+
+} catch (e) {
+    console.error(e);
+}

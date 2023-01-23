@@ -1,0 +1,17 @@
+{
+	"id": "a405c4ee-2a12-ed11-bd6e-281878afc480",
+	"createdAt": "2022-08-02T06:18:33.216Z",
+	"createdBy": "jon.arne.skaarud@neptune-software.com",
+	"settings": {
+		"tableid": "5a669a1e-f466-eb11-988a-2818786fc240",
+		"hasDocumentation": false
+	},
+	"documentation": [],
+	"name": "invoice_monitor_workflow - auto-generated connector",
+	"description": " - auto-generated connector",
+	"group": null,
+	"type": "T",
+	"ver": "22.8.10.1055",
+	"disabled": false,
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784"
+}

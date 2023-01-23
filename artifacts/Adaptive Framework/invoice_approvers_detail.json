@@ -1,0 +1,184 @@
+{
+	"id": "3e78ec4c-658a-ed11-9f5e-0022489e2f99",
+	"createdAt": "2023-01-02T06:18:41.543Z",
+	"createdBy": "ole-andre.haugen@neptune-software.com",
+	"settings": {
+		"properties": {
+			"report": {
+				"showIcon": true,
+				"actionButtonLeft": false,
+				"iconButtonClose": "",
+				"textButtonClose": "Close",
+				"typeButtonClose": "Transparent",
+				"iconButtonSave": "",
+				"textButtonSave": "Save",
+				"textToastSave": "Saved",
+				"typeButtonSave": "Emphasized",
+				"iconButtonDelete": "",
+				"textButtonDelete": "Delete",
+				"textToastDelete": "Deleted",
+				"typeButtonDelete": "Reject",
+				"iconButtonAttachment": "",
+				"textButtonAttachment": "Add Attachment",
+				"typeButtonAttachment": "Transparent",
+				"tab0Text": "General",
+				"tabAText": "Attachment",
+				"tab1Text": "Tab 1",
+				"tab2Text": "Tab 2",
+				"tab3Text": "Tab 3",
+				"tab4Text": "Tab 4",
+				"tab5Text": "Tab 5",
+				"enableClose": true,
+				"enableSave": true,
+				"enableDelete": false,
+				"enableAttachment": false,
+				"enableTab1": false,
+				"enableTab2": false,
+				"enableTab3": false,
+				"enableTab4": false,
+				"enableTab5": false,
+				"enableUppercase": false,
+				"enablePadding": true,
+				"title": "Invoice Approvers"
+			},
+			"form": {
+				"enableCompact": false,
+				"enableCentered": true,
+				"formLayout": "ResponsiveGridLayout",
+				"labelSpanL": "12",
+				"labelSpanM": "12"
+			},
+			"table": {}
+		},
+		"fieldCatalog": [
+			{
+				"name": "KOSTL",
+				"label": "Cost Center",
+				"type": "text",
+				"usage": "BOTH"
+			},
+			{
+				"name": "approver1",
+				"label": "Approver 1",
+				"type": "text",
+				"usage": "BOTH"
+			},
+			{
+				"name": "approver2",
+				"label": "Approver 2",
+				"type": "text",
+				"usage": "BOTH"
+			},
+			{
+				"name": "approver3",
+				"label": "Approver 3",
+				"type": "text",
+				"usage": "BOTH"
+			},
+			{
+				"name": "createdAt",
+				"label": "Created At",
+				"type": "timestamp",
+				"usage": "BOTH"
+			},
+			{
+				"name": "createdBy",
+				"label": "Created By",
+				"type": "text",
+				"usage": "BOTH"
+			},
+			{
+				"name": "updatedAt",
+				"label": "Updated At",
+				"type": "timestamp",
+				"usage": "BOTH"
+			},
+			{
+				"name": "updatedBy",
+				"label": "Updated By",
+				"type": "text",
+				"usage": "BOTH"
+			}
+		],
+		"fieldsSel": [
+			{
+				"editable": true,
+				"visible": true,
+				"name": "KOSTL",
+				"text": "Cost Center",
+				"fieldPos": 1,
+				"columnLabel": "General",
+				"type": "SingleSelectLookup",
+				"lookupTable": "invoice_cskt",
+				"lookupFieldKey": "KOSTL",
+				"lookupFieldText": "KTEXT",
+				"lookupShowOnlyText": true
+			},
+			{
+				"editable": true,
+				"visible": true,
+				"name": "approver1",
+				"text": "Approver 1",
+				"fieldPos": 2
+			},
+			{
+				"editable": true,
+				"visible": true,
+				"name": "approver2",
+				"text": "Approver 2",
+				"fieldPos": 3
+			},
+			{
+				"editable": true,
+				"visible": true,
+				"name": "approver3",
+				"text": "Approver 3",
+				"fieldPos": 4
+			},
+			{
+				"editable": false,
+				"visible": true,
+				"name": "updatedAt",
+				"text": "Updated At",
+				"fieldPos": 5,
+				"columnLabel": "Dates",
+				"type": "DateTimePicker"
+			},
+			{
+				"editable": false,
+				"visible": true,
+				"name": "updatedBy",
+				"text": "Updated By",
+				"fieldPos": 6
+			}
+		],
+		"fieldsRun": [],
+		"defaultVariant": {
+			"id": "f1a1eaf0-26ed-4a47-ae29-26dc0d17d77b",
+			"colOrder": "key_a_to_z",
+			"rowOrder": "key_a_to_z",
+			"row": [],
+			"column": [],
+			"val": [],
+			"inclusions": {},
+			"exclusions": {}
+		}
+	},
+	"name": "invoice_approvers_detail",
+	"description": "",
+	"group": "",
+	"type": "C",
+	"connectorid": "42a8a0fe-648a-ed11-9f5e-0022489e2f99",
+	"scriptSel": null,
+	"scriptRun": null,
+	"tableid": null,
+	"ver": "23.1.6.77",
+	"disabled": false,
+	"appType": "A",
+	"application": "planet9_adaptive_edit",
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784",
+	"roles": [],
+	"scriptSelObj": null,
+	"scriptRunObj": null,
+	"tableObj": null
+}

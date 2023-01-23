@@ -1,0 +1,120 @@
+//array with approvers - replace this with your logic for determine approvers.
+
+const testData = ["ulf.eliasson@neptune-software.com", "test@test.com"];
+
+const {
+    LessThan,
+    MoreThan,
+} = operators;
+
+
+const approverList = await getSubstitutes(testData);
+
+//Get the uniqe approvers - this is just for test running the script standalone.
+const wfApproversAll = [...new Set(approverList)];
+console.log("All Approvers after getSubst: ", wfApproversAll);
+//wfData.approvers should be set to the list off approvers after subst determination. like this:
+// wfData.approvers = [...new Set(approverList)];
+
+complete();
+
+async function getSubstitutes(approvers) {
+    //get substitutes for all approvers
+    const manager = modules.typeorm.getConnection().manager;
+    let subst = [];
+    for (let i = 0; i < approvers.length; i++) {
+        //Original approver should stil get the inbox item, if not remove this line
+        const approver = approvers[i];
+
+        subst.push(approver);
+
+        //get substitutes from DB, for given approver, active and valid for "today"
+        const substitute = await manager.find('wf_substitution', {
+            select: ["substitute"],
+            where: {
+                username: approver,
+                active: true,
+                from: LessThan(new Date()),
+                to: MoreThan(new Date()),
+            }
+        });
+
+
+        if (substitute) {
+            for (let i = 0; i < substitute.length; i++) {
+                subst.push(substitute[i].substitute);
+
+            }
+        }
+
+    }
+
+    return subst;
+
+}
+
+
+
+
+// const approvers = ["ulf.eliasson@neptune-software.com"];
+// const {
+//     LessThan,
+//     MoreThan,
+// } = operators;
+
+// var approverString = '';
+
+// let temp = await test(approvers);
+
+// console.log(temp);
+
+// let wf = [...new Set(temp)];
+
+// console.log("WF: ", wf);
+
+// async function test() {
+
+
+//     const manager = modules.typeorm.getConnection().manager;
+//     let subst = [];
+//     console.log("TEST");
+//     for (let i = 0; i < approvers.length; i++) {
+
+//         //Original approver should stil get the item:
+//         const approver = approvers[i];
+
+//         subst.push(approver);
+
+//         console.log(approver);
+
+//         const substitute = await manager.find('wf_substitution', {
+//             select: ["substitute"],
+//             where: {
+//                 username: approver,
+//                 active: true,
+//                 from: LessThan(new Date()),
+//                 to: MoreThan(new Date()),
+//             }
+//         });
+
+
+//         if (substitute) {
+//             for (let i = 0; i < substitute.length; i++) {
+//                 subst.push(substitute[i].substitute);
+
+//                 //console.log(i, substitute[i].substitute);
+
+
+
+//             }
+//         }
+
+//     }
+
+//     return subst;
+
+// }
+
+// console.log("complete");
+
+// complete();

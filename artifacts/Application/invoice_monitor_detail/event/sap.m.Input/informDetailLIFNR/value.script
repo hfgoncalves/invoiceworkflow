@@ -1,0 +1,9 @@
+if (typeof invoiceLIFNR === "undefined" || invoiceLIFNR === null || invoiceLIFNR === "") { return; }
+
+var lfa1 = ModelData.FindFirst(modelMasterData.oData.LFA1, "LIFNR", invoiceLIFNR)
+
+if (lfa1) {
+    return lfa1.LIFNR.replace(/^0+/, "") + " " + lfa1.NAME1;
+} else {
+    return invoiceLIFNR;
+}

@@ -1,0 +1,19 @@
+sap.n.Planet9.function({
+    id: "WorkflowInbox",
+    method: "Get",
+    data: { id: modelAppData.oData.invoice.WFID },
+    success: function (data) {
+
+        modeldiaWF.setData(data);
+        modeloListNotes.setData(data.notes || []);
+        modeloListAttachment.setData(data.attachment);
+        modeltabLog.setData(data.log);
+        diaWF.open();
+
+
+    },
+    error: function (data) {
+        sap.m.MessageToast.show(data.status);
+    }
+
+});

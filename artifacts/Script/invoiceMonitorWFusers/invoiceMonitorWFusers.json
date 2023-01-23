@@ -1,0 +1,20 @@
+{
+	"id": "facc0c70-3b12-ed11-bd6e-281878afc480",
+	"createdAt": "2022-08-02T08:16:42.060Z",
+	"createdBy": "jon.arne.skaarud@neptune-software.com",
+	"globalScripts": [],
+	"externalModules": [],
+	"entitySets": [],
+	"apis": [],
+	"name": "invoiceMonitorWFusers",
+	"ver": "22.8.2.819",
+	"description": null,
+	"content": "file:///content.script",
+	"useAsGlobalScript": false,
+	"transpiledContent": null,
+	"lastRunSuccessful": true,
+	"isTypescript": false,
+	"language": "javascript",
+	"jsscriptGroup": "b1a13a28-726b-eb11-b566-2818786fd42d",
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784"
+}

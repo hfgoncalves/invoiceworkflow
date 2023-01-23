@@ -1,0 +1,12 @@
+var context = oEvent.oSource.getBindingContext("MasterData");
+var data = context.getObject();
+
+if (oApp.getCurrentPage() === oPageTraining) {
+    modelRule.oData.HKONT = data.SAKNR;
+    modelRule.refresh();
+} else {
+    modelAppData.oData.invoice.HKONT = data.SAKNR;
+    modelAppData.refresh();
+}
+
+diaAccount.close();

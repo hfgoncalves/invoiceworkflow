@@ -1,0 +1,26 @@
+{
+	"id": "201d6b35-ed6b-eb11-b566-2818786fd42d",
+	"createdAt": "2021-02-10T22:13:32.260Z",
+	"createdBy": "ole-andre.haugen@neptune-software.com",
+	"globalScripts": [],
+	"externalModules": [],
+	"entitySets": [
+		{
+			"id": "21F2F950-6F6B-EB11-B566-2818786FD42D",
+			"name": "invoice_rules",
+			"contextname": "invoice_rules"
+		}
+	],
+	"apis": [],
+	"name": "ruleDelete",
+	"ver": "21.2.10.2213",
+	"description": " ",
+	"content": "file:///content.script",
+	"useAsGlobalScript": false,
+	"transpiledContent": null,
+	"lastRunSuccessful": false,
+	"isTypescript": false,
+	"language": "javascript",
+	"jsscriptGroup": "b1a13a28-726b-eb11-b566-2818786fd42d",
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784"
+}

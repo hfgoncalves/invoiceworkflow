@@ -1,0 +1,417 @@
+var parser = {
+
+    numParsed: 0,
+    numTotal: 0,
+    changed: [],
+
+    parseFiles: function () {
+
+        parser.numTotal = modeltabFiles.oData.length;
+        parser.numParsed = 0;
+        parser.changed = [];
+
+        $.each(modeltabFiles.oData, function (i, invoice) {
+            parser.getText(invoice.ATT_CONTENT, invoice, { findRule: true });
+        });
+
+    },
+
+    training: function () {
+        modelRule.oData.invoice = {};
+        parser.getText(modelRule.oData.example, modelRule.oData.invoice, { training: true });
+    },
+
+    getText: function (url, invoice, options) {
+
+        if (!options) options = {};
+
+        var loadingTask = pdfjsLib.getDocument(url);
+        var actions = [];
+
+        loadingTask.promise.then(function (pdf) {
+
+            var currPage = 0;
+
+            for (i = 0; i < pdf.numPages; i++) {
+
+                pdf.getPage(i + 1).then(function (page) {
+
+                    actions.push(page.getTextContent());
+                    currPage++;
+
+                    if (currPage === pdf.numPages) {
+
+                        Promise.all(actions).then(function (values) {
+
+                            var texts = [];
+
+                            $.each(values, function (i, value) {
+                                $.each(value.items, function (i, item) {
+                                    if (item.str.trim().length) texts.push(item);
+                                });
+                            });
+
+                            if (options.training) {
+                                modelRule.oData.texts = texts;
+                                modelRule.refresh();
+                            }
+
+                            if (options.findRule) {
+                                parser.findRule(invoice, texts);
+                            } else {
+
+                                var rules = null;
+
+                                // Find rule
+                                if (options.training) {
+                                    rules = modelRule.oData.rules;
+                                    parser.parseText(invoice, texts, rules);
+                                    modelRule.refresh();
+                                } else {
+                                    var rule = ModelData.FindFirst(modelAppData.oData.rules, "id", invoice.RULEID);
+                                    if (rule) rules = rule.rules;
+                                    parser.parseText(invoice, texts, rules);
+                                }
+
+                            }
+
+                        });
+
+                    }
+
+                });
+
+            }
+
+        });
+
+
+    },
+
+    findRule: function (invoice, texts) {
+
+        $.each(texts, function (iText, text) {
+
+            var textDoc = text.str.toLowerCase();
+            var ruleFound = false;
+
+            if (!textDoc) return;
+
+            $.each(modelAppData.oData.rules, function (iMap, rule) {
+
+                if (!rule.id) return;
+
+                var textMap = rule.str.toLowerCase();
+
+                if (!textMap) return;
+                if (!rule.type === "rule") return;
+                if (ruleFound) return;
+
+                if (textDoc.includes(textMap)) {
+                    console.log("RULE: ", rule);
+                    ruleFound = true;
+                    invoice.RULEID = rule.id;
+                    invoice.LIFNR = rule.vendorid;
+                    invoice.BUKRS = rule.BUKRS;
+                    invoice.HKONT = rule.HKONT;
+                    invoice.KOSTL = rule.KOSTL;
+                    invoice.XMWST = rule.XMWST || false;
+                    invoice.MWSKZ = rule.MWSKZ;
+                    invoice.AUTOPOST = rule.AUTOPOST || false;
+                    parser.parseText(invoice, texts, rule.rules);
+                }
+
+            });
+
+        })
+
+        // Update Invoice
+        if (invoice.RULEID) {
+            invoice.STATUS = 3;
+        } else {
+            invoice.STATUS = 2;
+        }
+
+        // Not possible to parse it
+        if (!texts.length) invoice.STATUS = 90;
+
+        // File Uploader 
+        if (oApp.getCurrentPage() === oPageUpload) {
+
+            parser.numParsed++;
+
+            if (parser.numParsed === parser.numTotal) {
+                busyDialog.open();
+                apiinvoiceSave({
+                    data: modeltabFiles.oData
+                }).then(function () {
+                    busyDialog.close();
+                    toolUploadBack.firePress();
+                })
+            }
+
+        } else {
+
+            switch (invoice.STATUS) {
+
+                case 2:
+                    parser.createRule(invoice);
+                    break;
+
+                default:
+                    modelAppControl.oData.enableEdit = true;
+                    modelAppControl.refresh();
+
+                    $("#" + viewidDetail).attr("src", invoice.ATT_CONTENT);
+                    oApp.to(oPageInvoice);
+                    modelAppData.refresh();
+                    break;
+
+            }
+
+        }
+
+    },
+
+    parseText: function (invoice, texts, rules) {
+
+        var addField = function (index, rule, invoice, texts) {
+
+            switch (rule.placement) {
+
+                case "before":
+                    index--;
+                    break;
+
+                case "same":
+                    break;
+
+                default:
+                    index++;
+                    break;
+
+            }
+
+            var value = "";
+
+            if (rule.value) {
+                value = rule.value;
+            } else {
+                if (texts[index]) value = texts[index].str;
+            }
+
+            if (!value) return;
+
+            // Substring if set 
+            if (rule.strFrom && rule.strTo) {
+                value = value.substr(rule.strFrom, rule.strTo);
+            } else if (rule.strFrom) {
+                value = value.substr(rule.strFrom, 9999);
+            }
+
+            switch (rule.type) {
+                case "duedate": //JAS - added duedate
+                case "date":
+                    if (!invoice.BLDAT || !invoice.FAEDT) {
+
+                        try {
+
+                            let dateFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({ pattern: "yyyyMMdd" });
+
+                            let date = "";
+                            let dateString = "";
+                            let dateArr = [];
+
+                            switch (rule.dateFormat) {
+
+                                case "dd.mm.yyyy":
+                                    dateArr = value.split(".");
+                                    dateString = dateArr[2] + "-" + dateArr[1] + "-" + dateArr[0];
+                                    break;
+
+                                case "yyyy.mm.dd":
+                                    dateArr = value.split(".");
+                                    dateString = dateArr[0] + "-" + dateArr[1] + "-" + dateArr[2];
+                                    break;
+
+                                case "yy-mm-dd":
+                                    dateArr = value.split("-");
+                                    dateString = "20" + dateArr[0] + "-" + dateArr[1] + "-" + dateArr[2];
+                                    break;
+
+                                case "mm.dd.yyyy":
+                                    dateArr = value.split(".");
+                                    dateString = dateArr[0] + "-" + dateArr[1] + "-" + dateArr[2];
+                                    break;
+
+                                case "mm/dd/yyyy":
+                                    dateArr = value.split("/");
+                                    dateString = dateArr[2] + "-" + dateArr[0] + "-" + dateArr[1];
+                                    break;
+
+                                case "dd/mm/yyyy":
+                                    dateArr = value.split("/");
+                                    dateString = dateArr[2] + "-" + dateArr[1] + "-" + dateArr[0];
+                                    break;
+
+                                default:
+                                    dateString = value;
+                                    break;
+
+                            }
+
+                            if (dateString) date = new Date(dateString);
+
+                            if (date != "Invalid Date") {
+                                if (rule.type == "date") {
+                                    invoice.BLDAT = dateFormat.format(date);
+                                    invoice.BUDAT = dateFormat.format(date);
+                                } else {
+                                    invoice.FAEDT = dateFormat.format(date);
+                                    invoice.FAEDT = dateFormat.format(date);
+                                }
+
+                            }
+
+                        } catch (e) {
+
+                        }
+                    }
+                    break;
+
+                case "value":
+                    if (!invoice.WRBTR) {
+
+                        try {
+
+                            // Trim
+                            let number = value.replace(/\s/g, "");
+
+                            switch (rule.numberFormat) {
+
+                                // 1000.00
+                                case "1":
+                                    number = number.replace(/,/g, "");
+                                    break;
+
+                                // 1000,00
+                                case "2":
+                                    number = number.replace(/,/g, ".");
+                                    break;
+
+                                // 1.000,00
+                                case "3":
+                                    number = number.replace(".", "");
+                                    number = number.replace(".", "");
+                                    number = number.replace(/,/g, ".");
+                                    break;
+
+                                // 1,000.00
+                                case "4":
+                                    number = number.replace(/,/g, "");
+                                    break;
+
+                                default:
+                                    break;
+
+                            }
+
+                            number = parseFloat(number);
+                            if (number) invoice.WRBTR = number;
+
+                        } catch (e) {
+
+                        }
+
+                    }
+                    break;
+
+                case "invoice":
+                    if (!invoice.XBLNR) invoice.XBLNR = value;
+                    break;
+
+                case "currency":
+                    if (!invoice.WAERS) invoice.WAERS = value;
+                    break;
+
+                case "kid":
+                    if (!invoice.KIDNO) invoice.KIDNO = value;
+                    break;
+
+                case "text":
+                    if (!invoice.SGTXT) invoice.SGTXT = value;
+                    break;
+
+            }
+
+            modelRule.refresh();
+
+        }
+
+
+        $.each(texts, function (iText, text) {
+
+            var textDoc = text.str.toLowerCase();
+
+            if (!textDoc) return;
+
+            $.each(rules, function (iMap, rule) {
+
+                if (!rule.id) return;
+
+                var textMap = rule.str.toLowerCase();
+
+                switch (rule.operation) {
+
+                    case "fixed":
+                        addField(iText, rule, invoice, texts);
+                        break;
+
+                    case "contains":
+                        if (!textMap) return;
+                        if (textDoc.includes(textMap)) addField(iText, rule, invoice, texts);
+                        break;
+
+                    default:
+                        if (!textMap) return;
+                        if (textDoc === textMap) addField(iText, rule, invoice, texts);
+                        break;
+
+
+                }
+
+            });
+
+        });
+
+    },
+
+    createRule: function (invoice) {
+
+
+        modelRule.setData({
+            name: "",
+            description: "",
+            example: invoice.ATT_CONTENT,
+            vendorid: "",
+            str: "",
+            rules: [],
+            texts: [],
+            invoice: invoice
+        });
+
+        modelRule.refresh();
+
+        $("#" + viewidRule).attr("src", modelRule.oData.example);
+
+        // Parse PDF
+        parser.getText(modelRule.oData.example, modelRule.oData.invoice, { training: true })
+
+        oApp.to(oPageTraining);
+
+    }
+
+}
+
+
+

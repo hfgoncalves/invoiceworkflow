@@ -1,0 +1,3 @@
+var rule = await entities.invoice_rules.findOne(req.query.id);
+result.data = rule;
+complete();

@@ -1,0 +1,125 @@
+const { In } = operators;
+const user = req.user;
+
+//let invoice = await entities.invoice_header.findOne(req.body.id);
+
+//Test data
+let invoice = await entities.invoice_header.findOne("8985E6D9-D0B4-4569-8B8F-02EFB1DDD47A");
+
+//Decimal handling:
+invoice.WRBTR = invoice.WRBTR.replace(/,/g, '.');
+
+// let invoice = {
+//     BUKRS: "1000",
+//     HKONT: "0000651000",
+//     KOSTL: "0000009110",
+//     WAERS: "NOK",
+//     WRBTR: "235.3",
+// }
+
+
+try {
+
+    // Find Approvers 
+    let approvals = await entities.invoice_approval.find({ KOSTL: invoice.KOSTL });
+    let approvalsid = [];
+    //mk
+    var approvers = '';
+    //mk
+    for (let i in approvals) {
+        const approval = approvals[i];
+        let amount = invoice.WRBTR;
+        if (invoice.WAERS === "NOK" || invoice.WAERS === "SEK") amount = amount / 10;
+
+        if (parseFloat(amount) >= parseFloat(approval.AMOUNT_FROM) && parseFloat(amount) <= parseFloat(approval.AMOUNT_TO)) {
+            approvalsid.push(approval.id);
+        }
+    }
+
+    let wfApprovers = "";
+    let wfSep = "";
+
+    if (approvalsid.length) {
+
+        const users = await entities.invoice_approval_users.find({ APPROVALID: In(approvalsid) });
+
+        const lfa1 = await entities.invoice_lfa1.findOne({ "LIFNR": invoice.LIFNR });
+        let vendName1 = lfa1.NAME1;
+
+        for (let iUsers in users) {
+            wfApprovers = wfApprovers + wfSep + users[iUsers].USER;
+            wfSep = ",";
+
+            let apprName = "";
+            //mk
+            approvers = approvers.concat(users[iUsers].USER);
+            approvers = approvers.concat(" ");
+            //mk
+
+            //Send e-mail to approvers - users[iUsers].USER - 
+            //Subject overstyres fra Template
+            //TEMP DISABLE
+            //await sendEmail(users[iUsers].USER, "Sub", null, "support@neptune-software.com", "7B3C809B-1D92-EB11-85AA-2818786F9D68", {invfrom: vendName1, name: apprName});
+
+        }
+    }
+
+    // Default Approver if None is detected
+    if (!wfApprovers) {
+
+        // New Status
+        invoice.STATUS = 93;
+        await entities.invoice_header.save(invoice);
+
+        result.data = {
+            status: "E",
+            text: "No Approver Found"
+        }
+
+        complete();
+
+    } else {
+
+        // Start Workflow
+        const wf = await p9.wf.start({
+            id: "CA71809C-4A6D-EB11-B566-2818786FD42D",
+            username: user.username,
+            objectType: invoice.id,
+            objectKey: invoice.XBLNR,
+            amount: invoice.WRBTR,
+            currency: invoice.WAERS,
+            // approver: wfApprovers
+        });
+
+        // New Status
+        invoice.STATUS = 22;
+        invoice.WFID = wf.id;
+        invoice.SAP_MESSAGE = 'Workflow Started';
+        invoice.APPROVERS_EMAIL = approvers; //MK
+        await entities.invoice_header.save(invoice);
+
+        result.data = {
+            status: "S",
+            text: "Workflow Started"
+        }
+
+        complete();
+
+    }
+
+} catch (error) {
+
+    log.error("Invoice Monitor: Workflow Start Error :" + error);
+
+    result.data = {
+        status: "E",
+        text: "Workflow Not Started"
+    }
+
+    complete();
+
+}
+
+
+
+

@@ -1,0 +1,10 @@
+ModelData.Add(modelRule.oData.rules, {
+    id: ModelData.genID(),
+    type: "",
+    str: "",
+    placement: "",
+    operation: "",
+    value: ""
+})
+
+modelRule.refresh();

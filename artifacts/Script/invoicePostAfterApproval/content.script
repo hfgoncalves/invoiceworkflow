@@ -1,0 +1,53 @@
+let invoice = await entities.invoice_header.findOne(req.body.id);
+
+try {
+
+    const request = await apis.post({
+        data: { WA_INVOICE: req.body }
+    });
+
+    const WA_INVOICE = request.data.result.WA_INVOICE
+
+    invoice.SAP_STATUS = WA_INVOICE.SAP_STATUS;
+    invoice.SAP_MESSAGE = WA_INVOICE.SAP_MESSAGE;
+    invoice.SAP_BELNR = WA_INVOICE.SAP_BELNR;
+    invoice.SAP_GJAHR = WA_INVOICE.SAP_GJAHR;
+
+    if (invoice.SAP_STATUS === "S") {
+        invoice.STATUS = 30;
+    } else {
+        invoice.STATUS = 92;
+    }
+
+    await entities.invoice_header.save(invoice);
+
+    result.data = {
+        status: invoice.SAP_STATUS,
+        invoice: invoice
+    }
+
+    complete();
+
+} catch (request) {
+
+    let errorText = "";
+    if (request.response) {
+        errorText = request.response.statusText;
+    }
+
+    invoice.SAP_STATUS = "E";
+    invoice.SAP_MESSAGE = errorText;
+    invoice.STATUS = 92;
+
+    await entities.invoice_header.save(invoice);
+
+    result.data = {
+        status: invoice.SAP_STATUS,
+        error: invoice.SAP_MESSAGE,
+        invoice: invoice
+    }
+
+    complete();
+}
+
+

@@ -1,0 +1,51 @@
+.nepFormInput {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.toolPagination {
+    border: none;
+    height: 3rem;
+}
+
+.nepDynamicPage .sapFDynamicPageTitle {
+    padding: 0.5rem 0.8rem !important;
+}
+
+.nepDynamicPage .sapFDynamicPageHeader.sapFDynamicPageHeaderWithContent {
+    padding: 0 !important;
+}
+
+.nepDynamicPage .sapFDynamicPageTitleMain>.sapFDynamicPageTitleMainInner .sapFDynamicPageTitleMainActions {
+    margin-left: auto;
+    flex-basis: unset !important;
+}
+
+.nepToolFilter {
+    height: 80px;
+}
+
+.nepVariant {
+    padding: 0;
+    height: 1.6rem;
+}
+
+.nepViewer {
+    border: none;
+    height: 100%;
+    width: 100%;
+}
+
+.nepTableTransparent .sapMListShowSeparatorsAll .sapMLIBShowSeparator:last-child>td,
+.nepTableTransparent .sapMListShowSeparatorsAll .sapMListTblSubRow:last-child>td {
+    border-bottom: none !important;
+}
+
+.nepNoBorderRadius {
+    border-radius: 0;
+}
+
+.nepScrollFullHeight .sapMScrollContScroll {
+     height: 100%;
+}

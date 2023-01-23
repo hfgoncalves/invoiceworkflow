@@ -1,0 +1,26 @@
+{
+	"id": "b2dd7004-608a-ed11-9f5e-0022489e2f99",
+	"createdAt": "2023-01-02T05:40:52.423Z",
+	"createdBy": "ole-andre.haugen@neptune-software.com",
+	"globalScripts": [
+		{
+			"id": "A21ED9A7-6B8A-ED11-9F5E-0022489E2F99",
+			"name": "Invoice - invoiceWorkflowUtils",
+			"contextname": "utils"
+		}
+	],
+	"externalModules": [],
+	"entitySets": [],
+	"apis": [],
+	"name": "invoiceWorkflowPostProcessing1",
+	"ver": "23.1.10.158",
+	"description": null,
+	"content": "file:///content.script",
+	"useAsGlobalScript": false,
+	"transpiledContent": null,
+	"lastRunSuccessful": false,
+	"isTypescript": false,
+	"language": "javascript",
+	"jsscriptGroup": "b1a13a28-726b-eb11-b566-2818786fd42d",
+	"package": "56e95ee8-0a79-ec11-94f6-281878510784"
+}
